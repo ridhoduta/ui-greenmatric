@@ -1,6 +1,8 @@
 'use client';
 
+import { motion} from 'framer-motion';
 import { StatCard } from '../cards/StatCard';
+import {staggerContainer, fadeInUp} from '@/components/animate/animate';
 
 export function StatsSection() {
   const stats = [
@@ -27,14 +29,20 @@ export function StatsSection() {
   ];
 
   return (
-    <section className="bg-[#f0fdf4] border-y border-outline-variant/30 py-stack-lg">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-stack-lg lg:gap-8 divide-y md:divide-y-0 lg:divide-x divide-outline-variant/20">
+    <motion.section
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={staggerContainer}
+      className="bg-[#f0fdf4] border-y border-outline-variant/30 py-stack-lg"
+    >
+      <motion.div variants={fadeInUp} className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-stack-lg lg:gap-8 divide-y md:divide-y-0 lg:divide-x divide-outline-variant/20">
           {stats.map((stat, index) => (
             <StatCard key={index} {...stat} />
           ))}
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }

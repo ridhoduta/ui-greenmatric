@@ -1,11 +1,16 @@
-'use client';
+"use client";
+import {motion} from 'framer-motion';
+import { useTransform, useScroll } from "motion/react";
 
 export function HeroSection() {
+  const { scrollYProgress } = useScroll();
+  const filter = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(10px)"]);
   return (
     <section className="w-full relative min-h-[100vh]">
       {/* Sticky Background Image Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
-        <img
+        <motion.img
+          style={{ filter }}
           alt="University Campus"
           className="w-full h-full object-cover"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbgWq5yc-oAQ6Wb9bBz3AULnk_lGn10nuAWRaOpLotyCygAL3u2CXyWEti1TzE0B6QOv6qVq6YPHK-PTQLcHjvU4lGSBJfONjvdZgT3mBCXKcs-uMJpYBGcmj7dZ77GdgwYAWHD7nkMcLx57wUq6fz39CdvUzd9YW-dX7IgqNv0kAvjpZYWuNdeNPLaMaxND1h0GT0lQQWxZsVnmvPwfU9n0zgniYjJvOrP7IYpilwx2_OhaDeVps"
@@ -19,7 +24,8 @@ export function HeroSection() {
           Rethinking the Future of Campus.
         </h1>
         <p className="font-body-lg text-body-lg max-w-2xl text-on-primary/90 mx-auto drop-shadow">
-          A digital platform for universities to manage, monitor, and improve their sustainability performance.
+          A digital platform for universities to manage, monitor, and improve
+          their sustainability performance.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">

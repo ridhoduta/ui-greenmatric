@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion, Variants } from 'framer-motion';
 import { LandingHeader } from '@/components/landing/layout/LandingHeader';
 import { LandingFooter } from '@/components/landing/layout/LandingFooter';
 import { PageHeader } from '@/components/landing/header';
@@ -35,22 +36,45 @@ export default function ContactPage() {
     setTimeout(() => setFormSubmitted(false), 5000);
   };
 
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const staggerContainer: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden">
       <LandingHeader />
 
       <main className="flex-1">
         {/* Page Header */}
-        <PageHeader
-          category="GET IN TOUCH"
-          title="Let's Build a More Sustainable Future."
-          description="Have questions about the platform, sustainability management, or collaboration? We would love to hear from you."
-        />
+        <motion.div initial="hidden" animate="show" variants={fadeInUp}>
+          <PageHeader
+            category="GET IN TOUCH"
+            title="Let's Build a More Sustainable Future."
+            description="Have questions about the platform, sustainability management, or collaboration? We would love to hear from you."
+          />
+        </motion.div>
 
         {/* Section 1: Contact Introduction & Info */}
-        <section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-mobile md:py-section-gap">
+        <motion.section
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={staggerContainer}
+          className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-mobile md:py-section-gap"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5 flex flex-col space-y-4">
+            <motion.div variants={fadeInUp} className="lg:col-span-5 flex flex-col space-y-4">
               <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">
                 CONTACT US
               </span>
@@ -63,11 +87,11 @@ export default function ContactPage() {
               <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
                 Our team will get back to you as soon as possible.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <motion.div variants={staggerContainer} className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Email Card */}
-              <div className="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <motion.div variants={fadeInUp} className="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
                   <span className="material-symbols-outlined text-2xl">mail</span>
                 </div>
@@ -80,10 +104,10 @@ export default function ContactPage() {
                 >
                   support@kampus.ac.id
                 </a>
-              </div>
+              </motion.div>
 
               {/* Phone Card */}
-              <div className="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <motion.div variants={fadeInUp} className="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
                   <span className="material-symbols-outlined text-2xl">call</span>
                 </div>
@@ -93,10 +117,10 @@ export default function ContactPage() {
                 <p className="font-headline-sm text-headline-sm text-on-surface font-semibold">
                   (+62) 21-786-7222
                 </p>
-              </div>
+              </motion.div>
 
               {/* Address Card */}
-              <div className="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <motion.div variants={fadeInUp} className="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
                   <span className="material-symbols-outlined text-2xl">location_on</span>
                 </div>
@@ -106,10 +130,10 @@ export default function ContactPage() {
                 <p className="font-body-md text-body-md text-on-surface font-medium leading-snug">
                   UI GreenMetric Secretariat, Universitas Indonesia Campus, Depok, 16424, Indonesia
                 </p>
-              </div>
+              </motion.div>
 
               {/* Office Hours Card */}
-              <div className="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-6 hover:border-primary/40 transition-colors">
+              <motion.div variants={fadeInUp} className="bg-surface-container-low border border-outline-variant/30 rounded-2xl p-6 hover:border-primary/40 transition-colors">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4">
                   <span className="material-symbols-outlined text-2xl">schedule</span>
                 </div>
@@ -122,14 +146,20 @@ export default function ContactPage() {
                 <p className="font-body-md text-body-md text-on-surface-variant">
                   08:00 — 16:00 WIB
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Section 2: Contact Form */}
         <section className="bg-surface-bright py-section-gap-mobile md:py-section-gap border-y border-outline-variant/20">
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={fadeInUp}
+            className="max-w-container-max mx-auto px-margin-mobile md:px-gutter"
+          >
             <div className="max-w-3xl mx-auto bg-surface border border-outline-variant/30 rounded-3xl p-8 md:p-12 shadow-sm">
               <div className="text-center mb-8">
                 <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold block mb-2">
@@ -221,57 +251,72 @@ export default function ContactPage() {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Section 3: FAQ */}
         <section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-mobile md:py-section-gap">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold block mb-3">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">
-              Have a Question?
-            </h2>
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={staggerContainer}
+            className="w-full"
+          >
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold block mb-3">
+                FREQUENTLY ASKED QUESTIONS
+              </span>
+              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">
+                Have a Question?
+              </h2>
+            </div>
 
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => {
-              const isOpen = activeFaq === index;
-              return (
-                <div
-                  key={index}
-                  className="bg-surface-bright border border-outline-variant/20 rounded-2xl overflow-hidden transition-all"
-                >
-                  <button
-                    onClick={() => setActiveFaq(isOpen ? null : index)}
-                    className="w-full p-6 text-left flex justify-between items-center space-x-4 hover:bg-surface-container-low/50 transition-colors"
+            <div className="max-w-3xl mx-auto space-y-4">
+              {faqs.map((faq, index) => {
+                const isOpen = activeFaq === index;
+                return (
+                  <motion.div
+                    key={index}
+                    variants={fadeInUp}
+                    className="bg-surface-bright border border-outline-variant/20 rounded-2xl overflow-hidden transition-all"
                   >
-                    <span className="font-headline-sm text-headline-sm text-on-surface font-semibold">
-                      {faq.q}
-                    </span>
-                    <span
-                      className={`material-symbols-outlined text-primary text-2xl transition-transform duration-300 ${
-                        isOpen ? 'rotate-180' : ''
-                      }`}
+                    <button
+                      onClick={() => setActiveFaq(isOpen ? null : index)}
+                      className="w-full p-6 text-left flex justify-between items-center space-x-4 hover:bg-surface-container-low/50 transition-colors"
                     >
-                      expand_more
-                    </span>
-                  </button>
+                      <span className="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                        {faq.q}
+                      </span>
+                      <span
+                        className={`material-symbols-outlined text-primary text-2xl transition-transform duration-300 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      >
+                        expand_more
+                      </span>
+                    </button>
 
-                  {isOpen && (
-                    <div className="px-6 pb-6 pt-2 text-on-surface-variant font-body-lg text-body-lg leading-relaxed border-t border-outline-variant/10">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+                    {isOpen && (
+                      <div className="px-6 pb-6 pt-2 text-on-surface-variant font-body-lg text-body-lg leading-relaxed border-t border-outline-variant/10">
+                        {faq.a}
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
         </section>
 
         {/* Section 4: Final CTA */}
-        <section className="bg-primary text-on-primary py-section-gap-mobile md:py-section-gap">
+        <motion.section
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="bg-primary text-on-primary py-section-gap-mobile md:py-section-gap"
+        >
           <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center flex flex-col items-center">
             <span className="font-label-md text-label-md text-secondary-fixed tracking-widest uppercase font-semibold mb-3">
               HAVE AN IDEA OR QUESTION?
@@ -289,7 +334,7 @@ export default function ContactPage() {
               Contact Us
             </Link>
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <LandingFooter />
