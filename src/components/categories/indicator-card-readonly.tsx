@@ -1,6 +1,8 @@
 'use client';
 
 import type { Indicator } from '@/types';
+import { formatFileUrl } from '@/lib/utils/constants';
+import { Paperclip, ExternalLink } from 'lucide-react';
 
 interface IndicatorCardReadonlyProps {
   indicator: Indicator;
@@ -10,6 +12,7 @@ export function IndicatorCardReadonly({ indicator }: IndicatorCardReadonlyProps)
   const earnedPoints = indicator.answer?.earned_points ?? 0;
   const hasAnswer = indicator.answer != null;
   const pct = indicator.max_points > 0 ? (earnedPoints / indicator.max_points) * 100 : 0;
+  const evidences = indicator.answer?.evidences ?? [];
 
   const statusColor = hasAnswer
     ? pct >= 80
@@ -78,6 +81,30 @@ export function IndicatorCardReadonly({ indicator }: IndicatorCardReadonlyProps)
                 </div>
               );
             })}
+          </div>
+        </div>
+      )}
+
+      {/* Evidences preview */}
+      {hasAnswer && evidences.length > 0 && (
+        <div className="mt-2.5 rounded-lg bg-slate-50 border border-slate-100 p-2.5">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-1.5 flex items-center gap-1">
+            <Paperclip className="h-3 w-3 text-primary" />
+            Dokumen Bukti Fisik ({evidences.length})
+          </p>
+          <div className="space-y-1.5">
+            {evidences.map((ev) => (
+              <a
+                key={ev.id}
+                href={formatFileUrl(ev.file_url)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-2 p-1.5 rounded-md bg-white border border-slate-200/70 hover:border-primary/50 text-xs text-on-surface hover:text-primary transition-colors shadow-2xs"
+              >
+                <span className="truncate font-medium">{ev.document_name}</span>
+                <ExternalLink className="h-3 w-3 text-slate-400 shrink-0" />
+              </a>
+            ))}
           </div>
         </div>
       )}

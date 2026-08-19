@@ -3,7 +3,7 @@ import type { Evidence } from '@/types';
 
 export interface UploadEvidencePayload {
   assessment_answer_id: number;
-  document_name: string;
+  document_name?: string;
   description?: string;
   file: File;
 }
@@ -12,7 +12,9 @@ export async function uploadEvidence(payload: UploadEvidencePayload): Promise<Ev
   const formData = new FormData();
   formData.append('file', payload.file);
   formData.append('assessment_answer_id', payload.assessment_answer_id.toString());
-  formData.append('document_name', payload.document_name);
+  if (payload.document_name) {
+    formData.append('document_name', payload.document_name);
+  }
   if (payload.description) {
     formData.append('description', payload.description);
   }

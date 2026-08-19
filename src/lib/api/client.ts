@@ -15,21 +15,8 @@ export class ApiError extends Error {
 
 function getToken(): string | null {
   if (typeof window === 'undefined') return null;
-  console.log('Retrieving token from localStorage:', localStorage.getItem(TOKEN_KEY));
   return localStorage.getItem(TOKEN_KEY);
 }
-
-// function handleUnauthorized(): void {
-//   if (typeof window === 'undefined') return;
-//   // Clear any existing token and user data
-//   localStorage.removeItem(TOKEN_KEY);
-//   localStorage.removeItem('greenmetric_user');
-//   // Clear cookies
-//   document.cookie = 'greenmetric_token=; path=/; max-age=0';
-//   document.cookie = 'greenmetric_user_role=; path=/; max-age=0';
-//   // Redirect to login
-//   window.location.href = '/login';
-// }
 
 export async function apiClient<T>(
   endpoint: string,
@@ -51,33 +38,43 @@ export async function apiClient<T>(
     headers,
   };
 
+  const fullUrl = `${API_BASE_URL}${endpoint}`;
+
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
+    const response = await fetch(fullUrl, config);
+
+    let rawData: any = null;
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      rawData = await response.json().catch(() => null);
+    } else {
+      rawData = await response.text().catch(() => null);
+    }
 
     if (!response.ok) {
-      // Handle 401 Unauthorized - token expired or invalid
-      if (response.status === 401) {
-        // handleUnauthorized();
+      // If 401 on regular routes (not login), session expired
+      if (response.status === 401 && endpoint !== '/auth/login') {
         throw new ApiError(401, 401, 'Sesi telah berakhir. Silakan login kembali.');
       }
 
-      const errorData: ApiErrorResponse = await response.json();
-      throw new ApiError(
-        response.status,
-        errorData.code,
-        errorData.message,
-        errorData.errors
-      );
+      const message = rawData?.message || (typeof rawData === 'string' ? rawData : `Request failed with status ${response.status}`);
+      const errors = rawData?.errors;
+      const code = rawData?.code || response.status;
+      throw new ApiError(response.status, code, message, errors);
     }
 
-    const data: ApiResponse<T> = await response.json();
-    return data.data;
+    // Support both { data: ... } wrapped response and direct JSON response
+    if (rawData && typeof rawData === 'object' && 'data' in rawData && rawData.data !== undefined) {
+      return rawData.data as T;
+    }
+
+    return rawData as T;
   } catch (error) {
     if (error instanceof ApiError) {
       throw error;
     }
 
-    throw new ApiError(500, 500, 'Network error or server unavailable');
+    throw new ApiError(500, 500, (error as Error)?.message || 'Network error or server unavailable');
   }
 }
 
@@ -103,32 +100,38 @@ export async function apiClientMultipart<T>(
     body: formData,
   };
 
+  const fullUrl = `${API_BASE_URL}${endpoint}`;
+
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
+    const response = await fetch(fullUrl, config);
+
+    let rawData: any = null;
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      rawData = await response.json().catch(() => null);
+    }
 
     if (!response.ok) {
-      // Handle 401 Unauthorized - token expired or invalid
       if (response.status === 401) {
-        // handleUnauthorized();
         throw new ApiError(401, 401, 'Sesi telah berakhir. Silakan login kembali.');
       }
 
-      const errorData: ApiErrorResponse = await response.json();
-      throw new ApiError(
-        response.status,
-        errorData.code,
-        errorData.message,
-        errorData.errors
-      );
+      const message = rawData?.message || `Request failed with status ${response.status}`;
+      const errors = rawData?.errors;
+      const code = rawData?.code || response.status;
+      throw new ApiError(response.status, code, message, errors);
     }
 
-    const data: ApiResponse<T> = await response.json();
-    return data.data;
+    if (rawData && typeof rawData === 'object' && 'data' in rawData && rawData.data !== undefined) {
+      return rawData.data as T;
+    }
+
+    return rawData as T;
   } catch (error) {
     if (error instanceof ApiError) {
       throw error;
     }
 
-    throw new ApiError(500, 500, 'Network error or server unavailable');
+    throw new ApiError(500, 500, (error as Error)?.message || 'Network error or server unavailable');
   }
 }
