@@ -252,11 +252,11 @@ export function IndicatorCardSuperAdmin({
 
   if (isEditing) {
     return (
-      <div className="bg-white border-2 border-primary rounded-xl p-5 shadow-lg">
+      <div className="bg-white border-2 border-primary rounded-xl p-4 shadow-lg">
         {/* Edit Mode Header */}
-        <div className="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant">
-          <h3 className="text-sm font-bold text-primary uppercase tracking-wide">
-            ✏️ Edit Indikator
+        <div className="flex items-center justify-between mb-3 pb-2 border-b border-outline-variant">
+          <h3 className="text-xs font-bold text-primary uppercase tracking-wide">
+            Edit Indikator
           </h3>
           <button
             type="button"
@@ -269,10 +269,10 @@ export function IndicatorCardSuperAdmin({
         </div>
 
         {/* Form Fields */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {/* Code */}
           <div>
-            <label className="block text-xs font-semibold text-on-surface mb-1">
+            <label className="block text-[11px] font-semibold text-on-surface mb-0.5">
               Kode Indikator <span className="text-red-500">*</span>
             </label>
             <input
@@ -281,13 +281,13 @@ export function IndicatorCardSuperAdmin({
               onChange={(e) => setCode(e.target.value)}
               disabled={isSaving}
               placeholder="Contoh: SI9"
-              className="w-full h-9 rounded-lg border border-input bg-transparent px-3 text-sm transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
+              className="w-full h-8 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
             />
           </div>
 
           {/* Title */}
           <div>
-            <label className="block text-xs font-semibold text-on-surface mb-1">
+            <label className="block text-[11px] font-semibold text-on-surface mb-0.5">
               Judul / Pertanyaan <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -296,28 +296,28 @@ export function IndicatorCardSuperAdmin({
               disabled={isSaving}
               rows={2}
               placeholder="Deskripsi lengkap indikator..."
-              className="w-full rounded-lg border border-input bg-transparent px-3 py-2 text-sm transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50 resize-none"
+              className="w-full rounded-lg border border-input bg-transparent px-2.5 py-1.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50 resize-none"
             />
           </div>
 
           {/* Input Type & Max Points */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2">
             <div>
-              <label className="block text-xs font-semibold text-on-surface mb-1">
+              <label className="block text-[11px] font-semibold text-on-surface mb-0.5">
                 Tipe Input <span className="text-red-500">*</span>
               </label>
               <select
                 value={inputType}
                 onChange={(e) => setInputType(e.target.value as InputType)}
                 disabled={isSaving}
-                className="w-full h-9 rounded-lg border border-input bg-transparent px-3 text-sm transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
+                className="w-full h-8 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
               >
                 <option value="NUMERIC_FORMULA">Numeric Formula</option>
                 <option value="SINGLE_CHOICE">Single Choice</option>
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold text-on-surface mb-1">
+              <label className="block text-[11px] font-semibold text-on-surface mb-0.5">
                 Poin Maksimal <span className="text-red-500">*</span>
               </label>
               <input
@@ -326,74 +326,74 @@ export function IndicatorCardSuperAdmin({
                 value={maxPoints}
                 onChange={(e) => setMaxPoints(parseInt(e.target.value) || 0)}
                 disabled={isSaving}
-                className="w-full h-9 rounded-lg border border-input bg-transparent px-3 text-sm transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
+                className="w-full h-8 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
               />
             </div>
           </div>
 
           {/* Fields Management */}
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <label className="text-xs font-semibold text-on-surface">
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-[11px] font-semibold text-on-surface">
                 Dynamic Fields <span className="text-red-500">*</span>
               </label>
               <button
                 type="button"
                 onClick={addField}
                 disabled={isSaving}
-                className="text-xs font-medium text-primary hover:text-primary/80 transition-colors disabled:opacity-50"
+                className="text-[11px] font-medium text-primary hover:text-primary/80 transition-colors disabled:opacity-50"
               >
-                + Tambah Field
+                + Tambah
               </button>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2">
               {fields.map((field, index) => (
                 <div
                   key={index}
-                  className="p-3 bg-slate-50 border border-slate-200 rounded-lg"
+                  className="p-2.5 bg-slate-50 border border-slate-200 rounded-lg"
                 >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold text-slate-600">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10px] font-bold text-slate-600">
                       Field #{index + 1}
                     </span>
                     <button
                       type="button"
                       onClick={() => removeField(index)}
                       disabled={isSaving || fields.length === 1}
-                      className="text-xs text-red-500 hover:text-red-700 transition-colors disabled:opacity-30"
+                      className="text-[10px] text-red-500 hover:text-red-700 transition-colors disabled:opacity-30"
                     >
                       Hapus
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 mb-2">
+                  <div className="grid grid-cols-2 gap-1.5 mb-1.5">
                     <input
                       type="text"
-                      placeholder="key (contoh: jumlah_kebun)"
+                      placeholder="key"
                       value={field.key}
                       onChange={(e) => updateField(index, { key: e.target.value })}
                       disabled={isSaving}
-                      className="h-8 rounded border border-slate-300 bg-white px-2 text-xs outline-none focus:border-primary disabled:opacity-50"
+                      className="h-7 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                     />
                     <input
                       type="text"
-                      placeholder="Label (contoh: Jumlah Kebun)"
+                      placeholder="Label"
                       value={field.label}
                       onChange={(e) => updateField(index, { label: e.target.value })}
                       disabled={isSaving}
-                      className="h-8 rounded border border-slate-300 bg-white px-2 text-xs outline-none focus:border-primary disabled:opacity-50"
+                      className="h-7 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                     />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-1.5">
                     <select
                       value={field.type}
                       onChange={(e) =>
                         updateField(index, { type: e.target.value as FieldType })
                       }
                       disabled={isSaving}
-                      className="h-8 rounded border border-slate-300 bg-white px-2 text-xs outline-none focus:border-primary disabled:opacity-50"
+                      className="h-7 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                     >
                       <option value="int">Integer</option>
                       <option value="float">Float</option>
@@ -403,13 +403,13 @@ export function IndicatorCardSuperAdmin({
                     </select>
                     <input
                       type="text"
-                      placeholder="Unit (opsional)"
+                      placeholder="Unit"
                       value={field.unit ?? ''}
                       onChange={(e) => updateField(index, { unit: e.target.value })}
                       disabled={isSaving}
-                      className="h-8 rounded border border-slate-300 bg-white px-2 text-xs outline-none focus:border-primary disabled:opacity-50"
+                      className="h-7 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                     />
-                    <label className="flex items-center gap-1.5 px-2">
+                    <label className="flex items-center gap-1 px-1">
                       <input
                         type="checkbox"
                         checked={field.required}
@@ -417,9 +417,9 @@ export function IndicatorCardSuperAdmin({
                           updateField(index, { required: e.target.checked })
                         }
                         disabled={isSaving}
-                        className="w-3.5 h-3.5"
+                        className="w-3 h-3"
                       />
-                      <span className="text-xs text-slate-700">Required</span>
+                      <span className="text-[10px] text-slate-700">Req</span>
                     </label>
                   </div>
                 </div>
@@ -430,64 +430,60 @@ export function IndicatorCardSuperAdmin({
           {/* Tiers Management (for SINGLE_CHOICE) */}
           {inputType === 'SINGLE_CHOICE' && (
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <label className="text-xs font-semibold text-on-surface">
-                  Pilihan (Options) <span className="text-red-500">*</span>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="text-[11px] font-semibold text-on-surface">
+                  Pilihan <span className="text-red-500">*</span>
                 </label>
                 <button
                   type="button"
                   onClick={addTier}
                   disabled={isSaving}
-                  className="text-xs font-medium text-primary hover:text-primary/80 transition-colors disabled:opacity-50"
+                  className="text-[11px] font-medium text-primary hover:text-primary/80 transition-colors disabled:opacity-50"
                 >
-                  + Tambah Pilihan
+                  + Tambah
                 </button>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {tiers.map((tier, index) => (
                   <div
                     key={index}
-                    className="p-3 bg-blue-50 border border-blue-200 rounded-lg"
+                    className="p-2.5 bg-blue-50 border border-blue-200 rounded-lg"
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold text-blue-700">
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-[10px] font-bold text-blue-700">
                         Pilihan #{index + 1}
                       </span>
                       <button
                         type="button"
                         onClick={() => removeTier(index)}
                         disabled={isSaving || tiers.length === 1}
-                        className="text-xs text-red-500 hover:text-red-700 transition-colors disabled:opacity-30"
+                        className="text-[10px] text-red-500 hover:text-red-700 transition-colors disabled:opacity-30"
                       >
                         Hapus
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
-                      <div>
-                        <input
-                          type="text"
-                          placeholder="Label pilihan (contoh: Tidak ada)"
-                          value={tier.option_label}
-                          onChange={(e) => updateTier(index, { option_label: e.target.value })}
-                          disabled={isSaving}
-                          className="w-full h-8 rounded border border-blue-300 bg-white px-2 text-xs outline-none focus:border-primary disabled:opacity-50"
-                        />
-                      </div>
-                      <div>
-                        <input
-                          type="number"
-                          step="0.01"
-                          min="0"
-                          max="1"
-                          placeholder="Point multiplier (0-1)"
-                          value={tier.point_multiplier}
-                          onChange={(e) => updateTier(index, { point_multiplier: parseFloat(e.target.value) || 0 })}
-                          disabled={isSaving}
-                          className="w-full h-8 rounded border border-blue-300 bg-white px-2 text-xs outline-none focus:border-primary disabled:opacity-50"
-                        />
-                      </div>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <input
+                        type="text"
+                        placeholder="Label pilihan"
+                        value={tier.option_label}
+                        onChange={(e) => updateTier(index, { option_label: e.target.value })}
+                        disabled={isSaving}
+                        className="w-full h-7 rounded border border-blue-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
+                      />
+                      <input
+                        type="number"
+                        step="0.01"
+                        min="0"
+                        max="1"
+                        placeholder="Multiplier (0-1)"
+                        value={tier.point_multiplier}
+                        onChange={(e) => updateTier(index, { point_multiplier: parseFloat(e.target.value) || 0 })}
+                        disabled={isSaving}
+                        className="w-full h-7 rounded border border-blue-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
+                      />
                     </div>
                   </div>
                 ))}
@@ -497,12 +493,12 @@ export function IndicatorCardSuperAdmin({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center justify-end gap-2 mt-5 pt-4 border-t border-outline-variant">
+        <div className="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-outline-variant">
           <button
             type="button"
             onClick={handleCancel}
             disabled={isSaving}
-            className="px-4 py-2 text-xs font-semibold text-on-surface bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors disabled:opacity-50"
+            className="px-3 py-1.5 text-[11px] font-semibold text-on-surface bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors disabled:opacity-50"
           >
             Batal
           </button>
@@ -510,34 +506,18 @@ export function IndicatorCardSuperAdmin({
             type="button"
             onClick={handleSave}
             disabled={isSaving}
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-white bg-primary rounded-lg hover:brightness-110 transition-all disabled:opacity-50"
+            className="inline-flex items-center gap-1 px-3 py-1.5 text-[11px] font-semibold text-white bg-primary rounded-lg hover:brightness-110 transition-all disabled:opacity-50"
           >
             {isSaving ? (
               <>
-                <svg
-                  className="animate-spin h-3.5 w-3.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                  />
+                <svg className="animate-spin h-3 w-3" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                 </svg>
                 Menyimpan...
               </>
             ) : (
-              '💾 Simpan Perubahan'
+              'Simpan'
             )}
           </button>
         </div>
@@ -547,53 +527,53 @@ export function IndicatorCardSuperAdmin({
 
   // Display Mode
   return (
-    <div className="bg-white border border-outline-variant rounded-xl p-5 shadow-sm transition-shadow hover:shadow-md group">
+    <div className="bg-white border border-outline-variant rounded-xl p-4 shadow-sm transition-shadow hover:shadow-md group">
       {/* Header */}
-      <div className="flex items-start justify-between gap-3 mb-4">
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1 flex-wrap">
-            <span className="text-xs font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">
+      <div className="flex items-start justify-between gap-2 mb-3">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+            <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
               {indicator.code}
             </span>
-            <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full uppercase tracking-wide">
+            <span className="text-[9px] font-semibold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded-full uppercase tracking-wide">
               {indicator.input_type === 'NUMERIC_FORMULA' ? 'Formula' : 'Choice'}
             </span>
           </div>
-          <h4 className="text-sm font-semibold text-on-surface leading-snug">
+          <h4 className="text-sm font-semibold text-on-surface leading-snug truncate">
             {indicator.title}
           </h4>
         </div>
         <div className="shrink-0 text-right">
-          <p className="text-xs text-on-surface-variant">Maks. poin</p>
+          <p className="text-[10px] text-on-surface-variant">Maks</p>
           <p className="text-lg font-bold text-on-surface">{indicator.max_points}</p>
         </div>
       </div>
 
       {/* Fields Preview */}
-      <div className="mb-4">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant mb-2">
-          Dynamic Fields ({(indicator.fields ?? []).length})
+      <div className="mb-3">
+        <p className="text-[9px] font-bold uppercase tracking-wider text-on-surface-variant mb-1.5">
+          Fields ({(indicator.fields ?? []).length})
         </p>
-        <div className="space-y-1.5">
+        <div className="space-y-1">
           {(indicator.fields ?? []).map((field) => (
             <div
               key={field.id}
-              className="flex items-center justify-between text-xs bg-slate-50 border border-slate-100 rounded px-2.5 py-1.5"
+              className="flex items-center justify-between text-[11px] bg-slate-50 border border-slate-100 rounded px-2 py-1"
             >
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-slate-600 font-medium">
+              <div className="flex items-center gap-1.5 min-w-0">
+                <span className="font-mono text-slate-600 font-medium truncate">
                   {field.key}
                 </span>
                 <span className="text-slate-400">→</span>
-                <span className="text-on-surface">{field.label}</span>
+                <span className="text-on-surface truncate">{field.label}</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded uppercase">
+              <div className="flex items-center gap-1 shrink-0">
+                <span className="text-[9px] font-semibold text-blue-600 bg-blue-50 px-1 py-0.5 rounded uppercase">
                   {field.type}
                 </span>
                 {field.required && (
-                  <span className="text-[10px] font-semibold text-red-600 bg-red-50 px-1.5 py-0.5 rounded">
-                    Required
+                  <span className="text-[9px] font-semibold text-red-600 bg-red-50 px-1 py-0.5 rounded">
+                    Req
                   </span>
                 )}
               </div>
@@ -603,46 +583,30 @@ export function IndicatorCardSuperAdmin({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex items-center gap-2 pt-3 border-t border-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="flex items-center gap-2 pt-2.5 border-t border-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">
         <button
           type="button"
           onClick={() => setIsEditing(true)}
-          className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
+          className="flex-1 inline-flex items-center justify-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
         >
-          ✏️ Edit
+          Edit
         </button>
         <button
           type="button"
           onClick={handleDelete}
           disabled={isDeleting}
-          className="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors disabled:opacity-50"
         >
           {isDeleting ? (
             <>
-              <svg
-                className="animate-spin h-3 w-3"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                />
+              <svg className="animate-spin h-3 w-3" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>
-              Menghapus...
+              Hapus...
             </>
           ) : (
-            '🗑️ Hapus'
+            'Hapus'
           )}
         </button>
       </div>

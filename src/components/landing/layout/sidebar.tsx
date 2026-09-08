@@ -79,8 +79,8 @@ export function Sidebar({ role, onClose }: SidebarProps) {
     <aside className="flex h-full flex-col bg-white">
       <div className="flex items-center justify-between border-b border-outline-variant px-6 py-5">
         <div>
-          <h1 className="text-lg font-bold text-primary">GreenMetric</h1>
-          <p className="text-xs text-muted-foreground">Sustainability Dashboard</p>
+          <h1 className="text-lg font-bold text-primary">Dashboard</h1>
+          <p className="text-xs text-muted-foreground">Navigasi Akun</p>
         </div>
         {onClose && (
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground">

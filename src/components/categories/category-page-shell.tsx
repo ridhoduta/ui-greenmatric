@@ -42,65 +42,61 @@ export function CategoryPageShell({
   const pct = config.max_points > 0 ? Math.min((earnedPoints / config.max_points) * 100, 100) : 0;
   const isOperator = role.startsWith('OPERATOR_');
   const isSuperAdmin = role === "SUPER_ADMIN";
+
   if (isSuperAdmin) {
     return (
-      <div className="w-full max-w-5xl mx-auto p-6 lg:p-8">
+      <div className="w-full max-w-6xl mx-auto p-6 lg:p-8">
         {children}
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-6 lg:p-8">
-      {/* Page Header */}
-      <div className="mb-8">
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-          <div className="flex items-start gap-4">
-            {/* Category Badge */}
-            <div className={`shrink-0 flex items-center justify-center w-12 h-12 rounded-xl font-extrabold text-sm ${colors.bg} ${colors.text}`}>
+    <div className="w-full max-w-6xl mx-auto p-6 lg:p-8">
+      {/* Compact Header */}
+      <div className="mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className={`shrink-0 flex items-center justify-center w-10 h-10 rounded-lg font-extrabold text-xs ${colors.bg} ${colors.text}`}>
               {config.code}
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-on-surface leading-tight">
+              <h2 className="text-xl font-bold text-on-surface leading-tight">
                 {config.name}
               </h2>
-              <p className="mt-1 text-sm text-on-surface-variant max-w-xl">
+              <p className="text-xs text-on-surface-variant mt-0.5">
                 {config.description}
               </p>
             </div>
           </div>
 
-          {/* Role Badge */}
-          <div className="shrink-0">
-            <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${
-              isOperator
-                ? 'bg-primary/10 text-primary'
-                : 'bg-slate-100 text-slate-600'
-            }`}>
-              {/* dot */}
-              <span className={`w-1.5 h-1.5 rounded-full ${isOperator ? 'bg-primary' : 'bg-slate-400'}`} />
-              {isOperator ? 'Mode Input' : 'Mode Monitoring'}
-              <span className="opacity-60">·</span>
-              {ROLE_LABELS[role] ?? role}
-            </span>
-          </div>
+          <span className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${
+            isOperator
+              ? 'bg-primary/10 text-primary'
+              : 'bg-slate-100 text-slate-600'
+          }`}>
+            <span className={`w-1.5 h-1.5 rounded-full ${isOperator ? 'bg-primary' : 'bg-slate-400'}`} />
+            {isOperator ? 'Mode Input' : 'Mode Monitoring'}
+            <span className="opacity-60">·</span>
+            {ROLE_LABELS[role] ?? role}
+          </span>
         </div>
 
-        {/* Progress Bar */}
-        <div className="mt-6 p-4 bg-white rounded-xl border border-outline-variant shadow-sm">
-          <div className="flex items-center justify-between mb-2 text-sm font-medium">
+        {/* Compact Progress Bar */}
+        <div className="mt-4 p-3 bg-white rounded-lg border border-outline-variant shadow-sm">
+          <div className="flex items-center justify-between mb-1.5 text-xs font-medium">
             <span className="text-on-surface-variant">Poin Terkumpul</span>
             <span className={`font-bold ${colors.text}`}>
               {earnedPoints.toLocaleString('id-ID')} / {config.max_points.toLocaleString('id-ID')} poin
             </span>
           </div>
-          <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+          <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
             <div
               className={`h-full rounded-full transition-all duration-700 ease-out ${colors.bar}`}
               style={{ width: `${pct}%` }}
             />
           </div>
-          <div className="flex justify-between mt-1.5 text-xs text-on-surface-variant">
+          <div className="flex justify-between mt-1 text-[10px] text-on-surface-variant">
             <span>{pct.toFixed(1)}% tercapai</span>
             <span>{config.weight_percentage}% bobot total</span>
           </div>

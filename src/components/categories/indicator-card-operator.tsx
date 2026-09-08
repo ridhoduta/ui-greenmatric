@@ -226,47 +226,47 @@ export function IndicatorCardOperator({
   const evidences = indicator.answer?.evidences ?? [];
 
   return (
-    <div className="bg-white border border-outline-variant rounded-xl p-5 shadow-sm transition-shadow hover:shadow-md">
+    <div className="bg-white border border-outline-variant rounded-xl p-4 shadow-sm transition-shadow hover:shadow-md">
       {/* Header */}
-      <div className="flex items-start justify-between gap-3 mb-4">
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1 flex-wrap">
-            <span className="text-xs font-mono font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">
+      <div className="flex items-start justify-between gap-2 mb-3">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+            <span className="text-[10px] font-mono font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
               {indicator.code}
             </span>
             {hasAnswer && !isDirty && (
-              <span className="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
-                ✓ Tersimpan
+              <span className="text-[10px] font-medium text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full">
+                Tersimpan
               </span>
             )}
             {isDirty && (
-              <span className="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
-                ● Belum disimpan
+              <span className="text-[10px] font-medium text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-full">
+                Belum disimpan
               </span>
             )}
             {indicator.answer?.calculated_value !== null && indicator.answer?.calculated_value !== undefined && (
-              <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-medium text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded-full">
                 Nilai: {indicator.answer.calculated_value}
               </span>
             )}
           </div>
-          <h4 className="text-sm font-semibold text-on-surface leading-snug">
+          <h4 className="text-sm font-semibold text-on-surface leading-snug truncate">
             {indicator.title}
           </h4>
         </div>
         <div className="shrink-0 text-right">
-          <p className="text-xs text-on-surface-variant">Maks. poin</p>
+          <p className="text-[10px] text-on-surface-variant">Maks</p>
           <p className="text-sm font-bold text-on-surface">{indicator.max_points}</p>
         </div>
       </div>
 
       {/* Input Section */}
-      <div className="space-y-3 mb-4">
+      <div className="space-y-2.5 mb-3">
         {(indicator.fields ?? []).map((field) => (
-          <div key={field.key} className="flex flex-col gap-1">
+          <div key={field.key} className="flex flex-col gap-0.5">
             <label
               htmlFor={`${indicator.code}-${field.key}`}
-              className="text-xs font-medium text-on-surface-variant"
+              className="text-[11px] font-medium text-on-surface-variant"
             >
               {field.label}
               {field.unit && (
@@ -329,50 +329,49 @@ export function IndicatorCardOperator({
       </div>
 
       {/* Answer Action Footer */}
-      <div className="flex items-center justify-between border-t border-outline-variant pt-3 mb-4">
+      <div className="flex items-center justify-between border-t border-outline-variant pt-2.5 mb-3">
         {hasAnswer ? (
-          <span className="text-xs text-on-surface-variant">
-            Poin diperoleh:{' '}
-            <span className="font-bold text-on-surface">{earnedPoints}</span>
+          <span className="text-[11px] text-on-surface-variant">
+            Poin: <span className="font-bold text-on-surface">{earnedPoints}</span>
           </span>
         ) : (
-          <span className="text-xs text-on-surface-variant/60">Belum ada jawaban disimpan</span>
+          <span className="text-[11px] text-on-surface-variant/60">Belum ada jawaban</span>
         )}
 
         <button
           type="button"
           onClick={handleSave}
           disabled={isSaving || !isDirty}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white transition-all hover:brightness-110 disabled:pointer-events-none disabled:opacity-40"
+          className="inline-flex items-center gap-1 rounded-lg bg-primary px-2.5 py-1 text-[11px] font-semibold text-white transition-all hover:brightness-110 disabled:pointer-events-none disabled:opacity-40"
         >
           {isSaving ? (
             <>
-              <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              <Loader2 className="h-3 w-3 animate-spin" />
               Menyimpan...
             </>
           ) : (
-            'Simpan Jawaban'
+            'Simpan'
           )}
         </button>
       </div>
 
       {/* Evidence Section */}
-      <div className="rounded-lg border border-slate-200 bg-slate-50/70 p-3.5">
+      <div className="rounded-lg border border-slate-200 bg-slate-50/70 p-2.5">
         <div className="flex items-center justify-between">
           <button
             type="button"
             onClick={() => setIsEvidenceSectionOpen((prev) => !prev)}
-            className="flex items-center gap-2 text-xs font-bold text-on-surface hover:text-primary transition-colors"
+            className="flex items-center gap-1.5 text-[11px] font-bold text-on-surface hover:text-primary transition-colors"
           >
-            <Paperclip className="h-3.5 w-3.5 text-primary" />
-            <span>Bukti Dokumen Fisik</span>
-            <span className="rounded-full bg-slate-200/80 px-2 py-0.5 text-[10px] font-semibold text-slate-700">
+            <Paperclip className="h-3 w-3 text-primary" />
+            <span>Bukti Dokumen</span>
+            <span className="rounded-full bg-slate-200/80 px-1.5 py-0.5 text-[9px] font-semibold text-slate-700">
               {evidences.length}
             </span>
             {isEvidenceSectionOpen ? (
-              <ChevronUp className="h-3.5 w-3.5 text-slate-400" />
+              <ChevronUp className="h-3 w-3 text-slate-400" />
             ) : (
-              <ChevronDown className="h-3.5 w-3.5 text-slate-400" />
+              <ChevronDown className="h-3 w-3 text-slate-400" />
             )}
           </button>
 
@@ -383,17 +382,17 @@ export function IndicatorCardOperator({
                 setIsEvidenceSectionOpen(true);
                 setIsUploadFormOpen((prev) => !prev);
               }}
-              className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+              className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-primary hover:underline"
             >
               {isUploadFormOpen ? (
                 <>
-                  <X className="h-3.5 w-3.5" />
-                  Tutup Form
+                  <X className="h-3 w-3" />
+                  Tutup
                 </>
               ) : (
                 <>
-                  <Plus className="h-3.5 w-3.5" />
-                  Unggah Bukti
+                  <Plus className="h-3 w-3" />
+                  Unggah
                 </>
               )}
             </button>
@@ -401,12 +400,12 @@ export function IndicatorCardOperator({
         </div>
 
         {isEvidenceSectionOpen && (
-          <div className="mt-3 space-y-3">
+          <div className="mt-2.5 space-y-2.5">
             {/* Warning if no answer saved yet */}
             {!hasAnswer && (
-              <div className="flex items-center gap-2 rounded-md bg-amber-50 p-2.5 text-xs text-amber-800 border border-amber-200/60">
-                <AlertCircle className="h-4 w-4 shrink-0 text-amber-600" />
-                <span>Simpan jawaban indikator terlebih dahulu untuk dapat mengunggah dokumen bukti fisik.</span>
+              <div className="flex items-center gap-1.5 rounded-md bg-amber-50 p-2 text-[11px] text-amber-800 border border-amber-200/60">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0 text-amber-600" />
+                <span>Simpan jawaban terlebih dahulu untuk mengunggah bukti.</span>
               </div>
             )}
 
@@ -414,12 +413,12 @@ export function IndicatorCardOperator({
             {hasAnswer && isUploadFormOpen && (
               <form
                 onSubmit={handleUploadSubmit}
-                className="rounded-lg border border-primary/20 bg-white p-3.5 shadow-xs space-y-3"
+                className="rounded-lg border border-primary/20 bg-white p-3 shadow-xs space-y-2.5"
               >
                 <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                  <h5 className="text-xs font-bold text-on-surface flex items-center gap-1.5">
-                    <Upload className="h-3.5 w-3.5 text-primary" />
-                    Form Unggah Bukti Dokumen
+                  <h5 className="text-[11px] font-bold text-on-surface flex items-center gap-1">
+                    <Upload className="h-3 w-3 text-primary" />
+                    Unggah Bukti
                   </h5>
                   <button
                     type="button"

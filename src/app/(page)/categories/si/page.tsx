@@ -59,7 +59,7 @@ export default function CategorySIPage() {
 
   return (
     <CategoryPageShell config={config} role={user.role} earnedPoints={earnedPoints}>
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {isSuperAdmin && !draftIndicator && (
           <button
             onClick={() =>
@@ -82,7 +82,7 @@ export default function CategorySIPage() {
                 ],
               })
             }
-            className="w-full py-3 border-2 border-dashed border-primary/45 rounded-xl font-bold text-sm text-primary hover:bg-primary/5 hover:border-primary transition-all flex items-center justify-center gap-1.5"
+            className="py-3 border-2 border-dashed border-primary/45 rounded-xl font-bold text-xs text-primary hover:bg-primary/5 hover:border-primary transition-all flex items-center justify-center gap-1"
           >
             + Tambah Indikator Baru
           </button>
@@ -101,7 +101,7 @@ export default function CategorySIPage() {
         )}
 
         {indicators.length === 0 && !draftIndicator ? (
-          <div className="text-center py-16 text-sm text-on-surface-variant">
+          <div className="col-span-2 text-center py-12 text-xs text-on-surface-variant">
             Tidak ada indikator ditemukan.
           </div>
         ) : (

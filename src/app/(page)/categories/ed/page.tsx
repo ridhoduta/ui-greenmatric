@@ -57,9 +57,9 @@ export default function CategoryEDPage() {
 
   return (
     <CategoryPageShell config={config} role={user.role} earnedPoints={earnedPoints}>
-      <div className="space-y-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {indicators.length === 0 ? (
-          <div className="text-center py-16 text-sm text-on-surface-variant">
+          <div className="col-span-2 text-center py-12 text-xs text-on-surface-variant">
             Tidak ada indikator ditemukan.
           </div>
         ) : (

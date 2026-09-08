@@ -14,13 +14,13 @@ const CATEGORY_UI_CONFIG: Record<
   CategoryCode,
   { icon: React.ReactNode; bgColor: string; iconColor: string; barColor: string }
 > = {
-  SI: { icon: <Building2 size={24} />, bgColor: 'bg-emerald-50 text-emerald-700', iconColor: 'text-emerald-700', barColor: 'bg-emerald-500' },
-  EC: { icon: <Zap size={24} />, bgColor: 'bg-blue-50 text-blue-700', iconColor: 'text-blue-700', barColor: 'bg-blue-500' },
-  WS: { icon: <Trash2 size={24} />, bgColor: 'bg-orange-50 text-orange-700', iconColor: 'text-orange-700', barColor: 'bg-orange-500' },
-  WR: { icon: <Droplets size={24} />, bgColor: 'bg-cyan-50 text-cyan-700', iconColor: 'text-cyan-700', barColor: 'bg-cyan-500' },
-  TR: { icon: <Car size={24} />, bgColor: 'bg-purple-50 text-purple-700', iconColor: 'text-purple-700', barColor: 'bg-purple-500' },
-  ED: { icon: <GraduationCap size={24} />, bgColor: 'bg-rose-50 text-rose-700', iconColor: 'text-rose-700', barColor: 'bg-rose-500' },
-  GD: { icon: <ShieldCheck size={24} />, bgColor: 'bg-indigo-50 text-indigo-700', iconColor: 'text-indigo-700', barColor: 'bg-indigo-500' },
+  SI: { icon: <Building2 size={18} />, bgColor: 'bg-emerald-50 text-emerald-700', iconColor: 'text-emerald-700', barColor: 'bg-emerald-500' },
+  EC: { icon: <Zap size={18} />, bgColor: 'bg-blue-50 text-blue-700', iconColor: 'text-blue-700', barColor: 'bg-blue-500' },
+  WS: { icon: <Trash2 size={18} />, bgColor: 'bg-orange-50 text-orange-700', iconColor: 'text-orange-700', barColor: 'bg-orange-500' },
+  WR: { icon: <Droplets size={18} />, bgColor: 'bg-cyan-50 text-cyan-700', iconColor: 'text-cyan-700', barColor: 'bg-cyan-500' },
+  TR: { icon: <Car size={18} />, bgColor: 'bg-purple-50 text-purple-700', iconColor: 'text-purple-700', barColor: 'bg-purple-500' },
+  ED: { icon: <GraduationCap size={18} />, bgColor: 'bg-rose-50 text-rose-700', iconColor: 'text-rose-700', barColor: 'bg-rose-500' },
+  GD: { icon: <ShieldCheck size={18} />, bgColor: 'bg-indigo-50 text-indigo-700', iconColor: 'text-indigo-700', barColor: 'bg-indigo-500' },
 };
 
 export default function CategoriesPage() {
@@ -69,13 +69,13 @@ export default function CategoriesPage() {
   return (
     <div className="p-6 lg:p-8 max-w-7xl mx-auto w-full">
       {/* Header */}
-      <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant pb-6">
+      <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant pb-5">
         <div>
           <div className="flex items-center gap-2 text-primary font-bold text-sm mb-1">
             <LayoutGrid size={16} />
             <span>Katalog Evaluasi</span>
           </div>
-          <h2 className="text-3xl font-extrabold text-on-surface tracking-tight">Kategori Evaluasi Mandiri</h2>
+          <h2 className="text-2xl font-extrabold text-on-surface tracking-tight">Kategori Evaluasi Mandiri</h2>
           <p className="text-on-surface-variant text-sm mt-1">
             Pantau dan lengkapi pengisian indikator keberlanjutan kampus Anda.
           </p>
@@ -89,15 +89,15 @@ export default function CategoriesPage() {
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* 2-Column Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {CATEGORIES.map((category) => {
           const ui = CATEGORY_UI_CONFIG[category.code];
           const scoreData = breakdown.find((b) => b.category_code === category.code);
           const earned = scoreData?.earned_points ?? 0;
           const max = category.max_points;
           const pct = max > 0 ? Math.min((earned / max) * 100, 100) : 0;
-          
+
           const isOperator = user.role === category.operator_role;
           const isAdmin = user.role === 'ADMIN_KAMPUS' || user.role === 'SUPER_ADMIN';
           const canEdit = isOperator || isAdmin;
@@ -106,60 +106,58 @@ export default function CategoriesPage() {
             <div
               key={category.code}
               onClick={() => router.push(category.href)}
-              className="bg-white border border-outline-variant rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all flex flex-col cursor-pointer group relative overflow-hidden"
+              className="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all flex flex-col cursor-pointer group relative overflow-hidden"
             >
-              {/* Top Details */}
-              <div className="flex justify-between items-start mb-4">
-                <div className={`p-3 rounded-xl ${ui.bgColor} transition-colors group-hover:scale-105 duration-300`}>
-                  {ui.icon}
+              {/* Top Row: Icon + Title + Badge */}
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className={`shrink-0 p-2 rounded-lg ${ui.bgColor} transition-colors group-hover:scale-105 duration-300`}>
+                    {ui.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-bold text-on-surface leading-snug group-hover:text-primary transition-colors truncate">
+                      {category.name}
+                    </h3>
+                    <span className="text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest">
+                      {category.code} · {category.weight_percentage}%
+                    </span>
+                  </div>
                 </div>
-                
-                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
+                <span className={`shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
                   pct >= 100
                     ? 'bg-emerald-100 text-emerald-700'
                     : pct > 0
                     ? 'bg-amber-100 text-amber-700'
                     : 'bg-slate-100 text-slate-500'
                 }`}>
-                  {pct >= 100 ? 'Selesai' : pct > 0 ? 'Progres' : 'Belum Mulai'}
+                  {pct >= 100 ? 'Selesai' : pct > 0 ? 'Progres' : 'Mulai'}
                 </span>
               </div>
 
-              {/* Title & Description */}
-              <div className="flex-1 mb-6">
-                <h3 className="text-lg font-bold text-on-surface leading-snug mb-1 group-hover:text-primary transition-colors">
-                  {category.name}
-                </h3>
-                <span className="text-[11px] font-mono font-bold text-muted-foreground uppercase tracking-widest block mb-3">
-                  KODE: {category.code} · BOBOT: {category.weight_percentage}%
-                </span>
-                <p className="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">
-                  {category.description}
-                </p>
-              </div>
+              {/* Description */}
+              <p className="text-xs text-on-surface-variant line-clamp-2 leading-relaxed mb-3">
+                {category.description}
+              </p>
 
               {/* Progress */}
-              <div className="mt-auto space-y-3">
+              <div className="mt-auto space-y-2">
                 <div className="flex justify-between text-xs font-bold text-on-surface">
                   <span>{formatNumber(earned, 0)} / {formatNumber(max, 0)} Poin</span>
                   <span className={ui.iconColor}>{pct.toFixed(0)}%</span>
                 </div>
-
-                <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-500 ${ui.barColor}`}
                     style={{ width: `${pct}%` }}
                   />
                 </div>
-
-                {/* Footer Action */}
-                <div className="pt-3 border-t border-slate-50 flex items-center justify-between text-xs font-semibold">
+                <div className="flex items-center justify-between text-xs font-semibold">
                   <span className="text-muted-foreground">
-                    {canEdit ? 'Akses: Edit & Pantau' : 'Akses: Pantau Saja'}
+                    {canEdit ? 'Edit & Pantau' : 'Pantau Saja'}
                   </span>
                   <span className="text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-                    {canEdit ? 'Mulai Pengisian' : 'Lihat Detail'}
-                    <ArrowRight size={14} />
+                    {canEdit ? 'Mulai' : 'Detail'}
+                    <ArrowRight size={12} />
                   </span>
                 </div>
               </div>
