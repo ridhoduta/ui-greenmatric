@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="id" class="h-full" style=""><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - UI GreenMetric UniSustain</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: '#056b46',
+              dark: '#03472e',
+              light: '#0b8f5f',
+              surface: '#ecfdf5',
+            },
+            secondary: '#10b981',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full bg-slate-50 text-slate-800 font-sans antialiased flex flex-col justify-between selection:bg-emerald-100 selection:text-emerald-800">
+  <!-- Minimal Top Navigation Bar -->
+  <header class="w-full px-6 py-4 flex items-center justify-between border-b border-slate-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-20">
+    <div class="flex items-center gap-3">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#056b46] to-emerald-400 flex items-center justify-center text-white shadow-sm shadow-emerald-700/20 group-hover:scale-105 transition-transform">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col leading-tight">
+          <span class="font-bold text-lg text-emerald-900 tracking-tight">UniSustain</span>
+          <span class="text-[10px] font-semibold text-emerald-700 uppercase tracking-wider">UI GreenMetric Portal</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#" class="hover:text-emerald-700 transition-colors">Home</a>
+        <a href="#" class="hover:text-emerald-700 transition-colors">UI GreenMetric</a>
+        <a href="#" class="hover:text-emerald-700 transition-colors">Client</a>
+        <a href="#" class="hover:text-emerald-700 transition-colors">Contact</a>
+      </nav>
+      <a href="#" class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100/80 px-3.5 py-1.5 rounded-full border border-emerald-200/60 transition-colors">
+        <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Kembali ke Beranda
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Login Card Container -->
+  <main class="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-10 relative overflow-hidden">
+    <!-- Subtle environmental background accents -->
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-emerald-200/30 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-teal-200/30 blur-3xl pointer-events-none"></div>
+
+    <!-- Centered Card: 2 Column Layout -->
+    <div class="w-full max-w-4xl bg-white rounded-3xl shadow-xl shadow-slate-200/70 border border-slate-100 overflow-hidden grid grid-cols-1 md:grid-cols-12 min-h-[580px] z-10 transition-all">
+      
+      <!-- Left Column: Visual Design with Green Background (md:col-span-5) -->
+      <div class="md:col-span-5 bg-gradient-to-br from-[#056b46] via-[#045638] to-[#023824] text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden">
+        <!-- Abstract Pattern Decor -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+        <div class="absolute -bottom-16 -right-16 w-60 h-60 rounded-full bg-emerald-400/20 blur-2xl pointer-events-none"></div>
+        <div class="absolute top-1/4 -left-12 w-40 h-40 rounded-full bg-emerald-300/10 blur-xl pointer-events-none"></div>
+
+        <!-- Visual Header -->
+        <div class="relative z-10">
+          
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-snug">
+            Selamat Datang di Portal UI GreenMetric
+          </h2>
+          <p class="mt-3 text-emerald-100/90 text-sm leading-relaxed">
+            Masuk untuk mengakses dasbor evaluasi, pelaporan data indikator keberlanjutan, dan peringkat institusi Anda.
+          </p>
+        </div>
+
+        <!-- Visual Highlight / Key Stats Feature -->
+        <div class="relative z-10 my-8 space-y-4">
+          
+
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="px-3 py-2.5 rounded-xl bg-emerald-950/40 border border-white/5">
+              <div class="text-xl font-bold text-emerald-300">1,745+</div>
+              <div class="text-[11px] text-emerald-200/80">Universitas Global</div>
+            </div>
+            <div class="px-3 py-2.5 rounded-xl bg-emerald-950/40 border border-white/5">
+              <div class="text-xl font-bold text-emerald-300">105</div>
+              <div class="text-[11px] text-emerald-200/80">Negara Berpartisipasi</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Footer / Quote -->
+        <div class="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-emerald-200/80">
+          
+          
+        </div>
+      </div>
+
+      <!-- Right Column: Login Form (md:col-span-7) -->
+      <div class="md:col-span-7 p-8 sm:p-12 flex flex-col justify-center bg-white">
+        <div class="max-w-md w-full mx-auto">
+          <!-- Form Header -->
+          <div class="mb-8">
+            <div class="flex items-center gap-2 mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-700">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              Portal Masuk Pengguna
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Masuk ke Akun</h1>
+            <p class="text-sm text-slate-500 mt-1">Silakan masukkan kredensial institusi Anda untuk melanjutkan.</p>
+          </div>
+
+          <!-- Login Role / Type Selector Tabs -->
+          
+
+          <!-- Form Fields -->
+          <form action="#" method="POST" class="space-y-4" onsubmit="event.preventDefault();">
+            <!-- Email / ID Kampus -->
+            <div>
+              <label for="email" class="block text-xs font-semibold text-slate-700 mb-1.5">
+                Email Institusi / ID Universitas
+              </label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206"></path>
+                  </svg>
+                </div>
+                <input type="email" id="email" name="email" placeholder="sustain@univ.ac.id" value="sustainability.office@ui.ac.id" class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-600/20 focus:border-emerald-600 transition-colors" required="">
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="password" class="block text-xs font-semibold text-slate-700">
+                  Kata Sandi
+                </label>
+                <a href="#" class="text-xs font-medium text-emerald-700 hover:text-emerald-800 hover:underline">
+                  Lupa sandi?
+                </a>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                  </svg>
+                </div>
+                <input type="password" id="password" name="password" placeholder="••••••••••••" value="greenmetric2026" class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-600/20 focus:border-emerald-600 transition-colors" required="">
+                <button type="button" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remember Me & Term -->
+            
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm shadow-md shadow-emerald-800/15 hover:shadow-lg hover:shadow-emerald-800/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 group">
+                <span class="">Masuk ke Dashboard</span>
+                <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- SSO / Login Alternatif -->
+            
+
+            
+          </form>
+
+          <!-- Register link footer -->
+          
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Clean Bottom Footer -->
+  <footer class="py-4 px-6 border-t border-slate-200/80 bg-white text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+    <div class="">
+      © 2026 UI GreenMetric World University Rankings. All rights reserved.
+    </div>
+    <div class="flex items-center gap-4 text-slate-500">
+      <a href="#" class="hover:text-emerald-700 transition-colors">Bantuan</a>
+      <a href="#" class="hover:text-emerald-700 transition-colors">Kebijakan Privasi</a>
+      <a href="#" class="hover:text-emerald-700 transition-colors">Syarat &amp; Ketentuan</a>
+      <span class="text-slate-300">|</span>
+      <span class="text-slate-400">v2.6 Institutional Edition</span>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+</body></html>

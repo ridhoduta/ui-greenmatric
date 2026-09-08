@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 export function LandingHeader() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // const navigate = useNavigate();
 
   // Close menu on route change
   useEffect(() => {
@@ -76,12 +77,12 @@ export function LandingHeader() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <button className="hidden md:flex bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors items-center gap-2">
+            <Link href="/login" className="hidden md:flex bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors items-center gap-2">
               Login
               <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
                 arrow_forward
               </span>
-            </button>
+            </Link>
 
             {/* Mobile Menu Toggle */}
             <button
@@ -151,12 +152,12 @@ export function LandingHeader() {
 
         {/* Drawer Footer — Login */}
         <div className="px-4 py-6 border-t border-outline-variant/30 dark:border-outline/20 shrink-0">
-          <button className="w-full flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors">
+          <Link href="/login" className="w-full flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors">
             Login
             <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
               arrow_forward
             </span>
-          </button>
+          </Link>
         </div>
       </div>
     </>
