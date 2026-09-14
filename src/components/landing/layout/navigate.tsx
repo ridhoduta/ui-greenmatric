@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/contexts/auth-context';
 import { dashboardSidebarItems } from '@/config/site';
 import {
   LayoutDashboard,
@@ -14,20 +15,21 @@ import {
   ShieldCheck,
   School,
   Users,
+  LogOut,
 } from 'lucide-react';
 import type { Role } from '@/types';
 
 const iconMap: Record<string, React.ReactNode> = {
-  'layout-dashboard': <LayoutDashboard size={16} />,
-  building: <Building2 size={16} />,
-  zap: <Zap size={16} />,
-  'trash-2': <Trash2 size={16} />,
-  droplets: <Droplets size={16} />,
-  car: <Car size={16} />,
-  'graduation-cap': <GraduationCap size={16} />,
-  'shield-check': <ShieldCheck size={16} />,
-  school: <School size={16} />,
-  users: <Users size={16} />,
+  'layout-dashboard': <LayoutDashboard size={18} />,
+  building: <Building2 size={18} />,
+  zap: <Zap size={18} />,
+  'trash-2': <Trash2 size={18} />,
+  droplets: <Droplets size={18} />,
+  car: <Car size={18} />,
+  'graduation-cap': <GraduationCap size={18} />,
+  'shield-check': <ShieldCheck size={18} />,
+  school: <School size={18} />,
+  users: <Users size={18} />,
 };
 
 interface NavigateProps {
@@ -36,32 +38,76 @@ interface NavigateProps {
 
 export function Navigate({ role }: NavigateProps) {
   const pathname = usePathname();
+  const { logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
+  const filteredItems = dashboardSidebarItems.filter(
+    (item) => !item.roles || item.roles.includes(role)
+  );
 
   return (
-    <aside className="flex h-full flex-col bg-white border-r border-outline-variant">
-      <nav className="flex-1 space-y-0.5 overflow-y-auto p-3">
-        {dashboardSidebarItems
-          .filter((item) => !item.roles || item.roles.includes(role))
-          .map((item) => {
+    <aside className="w-full">
+      <div className="rounded-2xl bg-[#f4f7fb] dark:bg-slate-900/60 p-4 border border-slate-200/70 dark:border-slate-800 shadow-xs">
+        {/* Menu Section Title */}
+        <div className="px-3 pt-1 pb-3">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
+            MENU
+          </span>
+        </div>
+
+        {/* Navigation Items */}
+        <nav className="flex flex-col space-y-1">
+          {filteredItems.map((item) => {
             const isActive =
               pathname === item.href ||
-              (item.href !== '/dashboard' && pathname.startsWith(item.href));
+              (item.href !== '/dashboard' &&
+                item.href !== '/super-admin/dashboard' &&
+                pathname.startsWith(item.href));
+
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-2 rounded px-2 py-1.5 text-xs font-medium transition-colors ${
+                className={`flex items-center gap-3.5 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all duration-150 ${
                   isActive
-                    ? 'bg-emerald-50 text-primary'
-                    : 'text-muted-foreground hover:bg-surface-container-high hover:text-foreground'
+                    ? 'bg-white text-primary shadow-xs font-semibold dark:bg-slate-800 dark:text-primary-fixed'
+                    : 'text-slate-600 hover:bg-white/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-slate-200'
                 }`}
               >
-                {iconMap[item.icon || '']}
-                <span>{item.label}</span>
+                <span
+                  className={`shrink-0 transition-colors ${
+                    isActive
+                      ? 'text-primary dark:text-primary-fixed'
+                      : 'text-slate-500 dark:text-slate-400'
+                  }`}
+                >
+                  {iconMap[item.icon || ''] || <LayoutDashboard size={18} />}
+                </span>
+                <span className="truncate">{item.label}</span>
               </Link>
             );
           })}
-      </nav>
+
+          {/* Logout Button */}
+          <div className="pt-2 mt-2 border-t border-slate-200/70 dark:border-slate-800">
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="flex w-full items-center gap-3.5 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 hover:bg-rose-50 hover:text-destructive dark:text-slate-400 dark:hover:bg-rose-950/20 dark:hover:text-destructive transition-all duration-150 cursor-pointer"
+            >
+              <LogOut size={18} className="shrink-0 text-slate-500 dark:text-slate-400" />
+              <span>Logout</span>
+            </button>
+          </div>
+        </nav>
+      </div>
     </aside>
   );
 }

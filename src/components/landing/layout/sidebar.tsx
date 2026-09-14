@@ -72,6 +72,14 @@ interface SidebarProps {
   onClose?: () => void;
 }
 
+const publicNavItems = [
+  { label: 'Home', href: '/' },
+  { label: 'UI GREENMETRIC', href: '/ui-green-matric' },
+  { label: 'CLIENT', href: '/client' },
+  { label: 'CONTACT', href: '/contact' },
+  { label: 'News', href: '/news' },
+];
+
 export function Sidebar({ role, onClose }: SidebarProps) {
   const pathname = usePathname();
 
@@ -79,8 +87,8 @@ export function Sidebar({ role, onClose }: SidebarProps) {
     <aside className="flex h-full flex-col bg-white">
       <div className="flex items-center justify-between border-b border-outline-variant px-6 py-5">
         <div>
-          <h1 className="text-lg font-bold text-primary">Dashboard</h1>
-          <p className="text-xs text-muted-foreground">Navigasi Akun</p>
+          <h1 className="text-lg font-bold text-primary">UI GREENMETRIC</h1>
+          <p className="text-xs text-muted-foreground">Navigasi Akun & Halaman</p>
         </div>
         {onClose && (
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground">
@@ -90,28 +98,66 @@ export function Sidebar({ role, onClose }: SidebarProps) {
       </div>
 
       <nav className="flex-1 space-y-1 overflow-y-auto px-4 py-4">
-        {dashboardSidebarItems
-          .filter((item) => !item.roles || item.roles.includes(role))
-          .map((item) => {
+        {/* Public Landing Pages */}
+        <div className="mb-3 space-y-1">
+          {publicNavItems.map((item) => {
             const isActive =
-              pathname === item.href ||
-              (item.href !== '/dashboard' && pathname.startsWith(item.href));
+              item.href === '/'
+                ? pathname === '/'
+                : pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className={`flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-3 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   isActive
-                    ? 'bg-emerald-50 text-primary'
+                    ? 'bg-emerald-50 text-primary font-semibold'
                     : 'text-muted-foreground hover:bg-surface-container-high hover:text-foreground'
                 }`}
               >
-                {iconMap[item.icon || '']}
                 <span>{item.label}</span>
               </Link>
             );
           })}
+        </div>
+
+        {/* Dashboard & Categories Menu dari navigate.tsx */}
+        <div className="pt-3 border-t border-outline-variant/60">
+          <div className="px-4 pb-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
+              MENU
+            </span>
+          </div>
+          <div className="space-y-1">
+            {dashboardSidebarItems
+              .filter((item) => !item.roles || item.roles.includes(role))
+              .map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  (item.href !== '/dashboard' &&
+                    item.href !== '/super-admin/dashboard' &&
+                    pathname.startsWith(item.href));
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={onClose}
+                    className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'bg-emerald-50 text-primary font-semibold'
+                        : 'text-muted-foreground hover:bg-surface-container-high hover:text-foreground'
+                    }`}
+                  >
+                    <span className={isActive ? 'text-primary' : 'text-slate-500'}>
+                      {iconMap[item.icon || '']}
+                    </span>
+                    <span className="truncate">{item.label}</span>
+                  </Link>
+                );
+              })}
+          </div>
+        </div>
       </nav>
 
       <UserFooter />

@@ -4,7 +4,34 @@ import { useAuth } from '@/contexts/auth-context';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
-import { ChevronDown, LayoutDashboard, LogOut } from 'lucide-react';
+import {
+  ChevronDown,
+  LayoutDashboard,
+  LogOut,
+  Building2,
+  Zap,
+  Trash2,
+  Droplets,
+  Car,
+  GraduationCap,
+  ShieldCheck,
+  School,
+  Users,
+} from 'lucide-react';
+import { dashboardSidebarItems } from '@/config/site';
+
+const dashboardIconMap: Record<string, React.ReactNode> = {
+  'layout-dashboard': <LayoutDashboard size={18} />,
+  building: <Building2 size={18} />,
+  zap: <Zap size={18} />,
+  'trash-2': <Trash2 size={18} />,
+  droplets: <Droplets size={18} />,
+  car: <Car size={18} />,
+  'graduation-cap': <GraduationCap size={18} />,
+  'shield-check': <ShieldCheck size={18} />,
+  school: <School size={18} />,
+  users: <Users size={18} />,
+};
 
 export function LandingHeader() {
   const { user, logout } = useAuth();
@@ -211,6 +238,52 @@ export function LandingHeader() {
               </Link>
             );
           })}
+
+          {/* Menu Dashboard dari navigate.tsx */}
+          {user && (
+            <div className="pt-4 mt-2 border-t border-outline-variant/30 dark:border-outline/20">
+              <div className="px-3 pb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
+                  MENU
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                {dashboardSidebarItems
+                  .filter((item) => !item.roles || item.roles.includes(user.role))
+                  .map((item) => {
+                    const isActive =
+                      pathname === item.href ||
+                      (item.href !== '/dashboard' &&
+                        item.href !== '/super-admin/dashboard' &&
+                        pathname.startsWith(item.href));
+
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`flex items-center gap-3.5 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors ${
+                          isActive
+                            ? 'bg-primary/10 text-primary font-semibold dark:bg-primary-fixed/10 dark:text-primary-fixed'
+                            : 'text-on-surface-variant dark:text-surface-variant hover:text-primary hover:bg-surface-container-low dark:hover:bg-surface-container-highest'
+                        }`}
+                      >
+                        <span
+                          className={`shrink-0 ${
+                            isActive
+                              ? 'text-primary dark:text-primary-fixed'
+                              : 'text-slate-500 dark:text-slate-400'
+                          }`}
+                        >
+                          {dashboardIconMap[item.icon || ''] || <LayoutDashboard size={18} />}
+                        </span>
+                        <span className="truncate">{item.label}</span>
+                      </Link>
+                    );
+                  })}
+              </div>
+            </div>
+          )}
         </nav>
 
         <div className="px-4 py-6 border-t border-outline-variant/30 dark:border-outline/20 shrink-0">
