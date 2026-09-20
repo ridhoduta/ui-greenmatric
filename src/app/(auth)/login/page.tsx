@@ -90,10 +90,10 @@ export default function LoginPage() {
       <div className="flex-1 p-8 sm:p-12 flex flex-col justify-center bg-white">
         <div className="max-w-md w-full mx-auto">
           <div className="mb-8">
-            <div className="flex items-center gap-2 mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-700">
+            {/* <div className="flex items-center gap-2 mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-700">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
               Portal Masuk Pengguna
-            </div>
+            </div> */}
             <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Masuk ke Akun</h1>
             <p className="text-sm text-slate-500 mt-1">Silakan masukkan kredensial institusi Anda untuk melanjutkan.</p>
           </div>

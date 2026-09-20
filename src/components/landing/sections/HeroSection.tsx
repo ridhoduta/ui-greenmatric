@@ -6,7 +6,7 @@ export function HeroSection() {
   const { scrollYProgress } = useScroll();
   const filter = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(10px)"]);
   return (
-    <section className="w-full relative min-h-[100vh]">
+    <section className="w-full relative min-h-screen">
       {/* Sticky Background Image Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
         <motion.img
@@ -15,7 +15,7 @@ export function HeroSection() {
           className="w-full h-full object-cover"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbgWq5yc-oAQ6Wb9bBz3AULnk_lGn10nuAWRaOpLotyCygAL3u2CXyWEti1TzE0B6QOv6qVq6YPHK-PTQLcHjvU4lGSBJfONjvdZgT3mBCXKcs-uMJpYBGcmj7dZ77GdgwYAWHD7nkMcLx57wUq6fz39CdvUzd9YW-dX7IgqNv0kAvjpZYWuNdeNPLaMaxND1h0GT0lQQWxZsVnmvPwfU9n0zgniYjJvOrP7IYpilwx2_OhaDeVps"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#00422b]/95 via-[#005236]/60 to-[#00422b]/40"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-[#00422b]/95 via-[#005236]/60 to-[#00422b]/40"></div>
       </div>
 
       {/* Hero Content Overlaid on top of Sticky Image */}

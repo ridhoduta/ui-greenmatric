@@ -13,6 +13,10 @@ export function IndicatorCardReadonly({ indicator }: IndicatorCardReadonlyProps)
   const hasAnswer = indicator.answer != null;
   const pct = indicator.max_points > 0 ? (earnedPoints / indicator.max_points) * 100 : 0;
   const evidences = indicator.answer?.evidences ?? [];
+  const rawData =
+  typeof indicator.answer?.raw_input_data === 'string'
+    ? JSON.parse(indicator.answer.raw_input_data)
+    : indicator.answer?.raw_input_data ?? {};
 
   const statusColor = hasAnswer
     ? pct >= 80
@@ -67,7 +71,7 @@ export function IndicatorCardReadonly({ indicator }: IndicatorCardReadonlyProps)
           </p>
           <div className="space-y-0.5">
             {(indicator.fields ?? []).map((field) => {
-              const val = indicator.answer?.raw_input_data[field.key];
+              const val = rawData[field.key];
               return (
                 <div key={field.key} className="flex justify-between text-[11px]">
                   <span className="text-on-surface-variant truncate mr-2">{field.label}</span>
@@ -76,7 +80,7 @@ export function IndicatorCardReadonly({ indicator }: IndicatorCardReadonlyProps)
                       ? field.type === 'choice'
                         ? String(val)
                         : `${(field.type === 'int' || field.type === 'float') ? Number(val).toLocaleString('id-ID') : val}${field.unit ? ` ${field.unit}` : ''}`
-                      : '—'}
+                      : 'anjai'}
                   </span>
                 </div>
               );
