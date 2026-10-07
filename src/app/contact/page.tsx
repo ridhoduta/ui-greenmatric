@@ -13,8 +13,8 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: 'What is UI GreenMetric?',
-      a: 'UI GreenMetric Sustainable University Rankings is an initiative that measures and encourages sustainability efforts among universities around the world.',
+      q: 'What is EcoMonitor?',
+      a: 'EcoMonitor Sustainable University Rankings is an initiative that measures and encourages sustainability efforts among universities around the world.',
     },
     {
       q: 'Who can use the platform?',
@@ -71,20 +71,20 @@ export default function ContactPage() {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
           variants={staggerContainer}
-          className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-mobile md:py-section-gap"
+          className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-16 md:py-24 lg:py-32"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <motion.div variants={fadeInUp} className="lg:col-span-5 flex flex-col space-y-4">
-              <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-start">
+            <motion.div variants={fadeInUp} className="lg:col-span-5 flex flex-col space-y-6 md:space-y-8">
+              <span className="font-label-md text-sm md:text-base text-primary tracking-[0.15em] uppercase font-semibold">
                 CONTACT US
               </span>
-              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-tight">
+              <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-surface leading-tight tracking-tight">
                 We're Here to Help.
               </h2>
-              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed pt-2">
+              <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant pt-2">
                 Whether you want to learn more about the platform, discuss a potential collaboration, or simply ask a question, feel free to reach out.
               </p>
-              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant">
                 Our team will get back to you as soon as possible.
               </p>
             </motion.div>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                   ADDRESS
                 </span>
                 <p className="font-body-md text-body-md text-on-surface font-medium leading-snug">
-                  UI GreenMetric Secretariat, Universitas Indonesia Campus, Depok, 16424, Indonesia
+                  EcoMonitor Secretariat, Universitas Indonesia Campus, Depok, 16424, Indonesia
                 </p>
               </motion.div>
 
@@ -152,20 +152,20 @@ export default function ContactPage() {
         </motion.section>
 
         {/* Section 2: Contact Form */}
-        <section className="bg-surface-bright py-section-gap-mobile md:py-section-gap border-y border-outline-variant/20">
+        <section className="bg-surface-bright py-16 md:py-24 lg:py-32 border-y border-outline-variant/20">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-50px' }}
             variants={fadeInUp}
-            className="max-w-container-max mx-auto px-margin-mobile md:px-gutter"
+            className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12"
           >
-            <div className="max-w-3xl mx-auto bg-surface border border-outline-variant/30 rounded-3xl p-8 md:p-12 shadow-sm">
-              <div className="text-center mb-8">
-                <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold block mb-2">
+            <div className="max-w-3xl mx-auto bg-surface border border-outline-variant/30 rounded-3xl p-8 md:p-10 lg:p-12 shadow-sm">
+              <div className="text-center mb-8 md:mb-10">
+                <span className="font-label-md text-sm md:text-base text-primary tracking-[0.15em] uppercase font-semibold block mb-3 md:mb-4">
                   SEND US A MESSAGE
                 </span>
-                <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold">
+                <h2 className="font-headline-lg text-3xl md:text-4xl lg:text-5xl font-bold text-on-surface">
                   Send Us a Message
                 </h2>
               </div>
@@ -255,7 +255,7 @@ export default function ContactPage() {
         </section>
 
         {/* Section 3: FAQ */}
-        <section className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-mobile md:py-section-gap">
+        <section className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-16 md:py-24 lg:py-32">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -263,11 +263,11 @@ export default function ContactPage() {
             variants={staggerContainer}
             className="w-full"
           >
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold block mb-3">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20">
+              <span className="font-label-md text-sm md:text-base text-primary tracking-[0.15em] uppercase font-semibold block mb-4 md:mb-6">
                 FREQUENTLY ASKED QUESTIONS
               </span>
-              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">
+              <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-surface mb-6 leading-tight tracking-tight">
                 Have a Question?
               </h2>
             </div>
@@ -315,21 +315,21 @@ export default function ContactPage() {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="bg-primary text-on-primary py-section-gap-mobile md:py-section-gap"
+          className="bg-primary text-on-primary py-16 md:py-24 lg:py-32"
         >
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center flex flex-col items-center">
-            <span className="font-label-md text-label-md text-secondary-fixed tracking-widest uppercase font-semibold mb-3">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 text-center flex flex-col items-center">
+            <span className="font-label-md text-sm md:text-base text-secondary-fixed tracking-[0.15em] uppercase font-semibold mb-4 md:mb-6">
               HAVE AN IDEA OR QUESTION?
             </span>
-            <h2 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-primary mb-6">
+            <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-primary mb-6 md:mb-8 leading-tight tracking-tight">
               Let's Start a Conversation.
             </h2>
-            <p className="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mb-8">
+            <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-primary/90 max-w-3xl mb-8 md:mb-10">
               Every sustainable initiative starts with a conversation.
             </p>
             <Link
               href="mailto:support@kampus.ac.id"
-              className="bg-on-primary text-primary px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors shadow-lg hover:-translate-y-0.5"
+              className="bg-on-primary text-primary px-8 py-4 rounded-lg font-label-md text-base md:text-lg font-semibold hover:bg-surface-container-low transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               Contact Us
             </Link>

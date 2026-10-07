@@ -77,10 +77,10 @@ export function LandingHeader() {
 
   const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'UI GREENMETRIC', href: '/ui-green-matric' },
+    { label: 'EcoMonitor', href: '/eco-monitor' },
     { label: 'CLIENT', href: '/client' },
     { label: 'CONTACT', href: '/contact' },
-    { label: 'News', href: '/news' },
+    // { label: 'News', href: '/news' },
   ];
 
   const baseStyle =

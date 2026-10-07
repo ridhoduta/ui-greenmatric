@@ -22,7 +22,7 @@ export interface PageHeaderProps {
 }
 
 const DEFAULT_BG_IMAGE =
-  'https://i.postimg.cc/zDFSqZGy/IMG-20210623-WA0006.jpg';
+  'https://i.postimg.cc/1zyMGmtd/download.jpg';
 
 export function PageHeader({
   category,
@@ -45,7 +45,7 @@ export function PageHeader({
           alt={title}
           className="w-full h-full object-cover"
         />
-        {/* Deep Green Tint Overlay matching UI GreenMetric theme */}
+        {/* Deep Green Tint Overlay matching EcoMonitor theme */}
         <div className="absolute inset-0 bg-linear-to-r from-[#00422b]/95 via-[#005236]/85 to-[#00422b]/75" />
       </div>
 

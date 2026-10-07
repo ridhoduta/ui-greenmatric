@@ -74,7 +74,7 @@ interface SidebarProps {
 
 const publicNavItems = [
   { label: 'Home', href: '/' },
-  { label: 'UI GREENMETRIC', href: '/ui-green-matric' },
+  { label: 'EcoMonitor', href: '/ui-green-matric' },
   { label: 'CLIENT', href: '/client' },
   { label: 'CONTACT', href: '/contact' },
   { label: 'News', href: '/news' },
@@ -87,7 +87,7 @@ export function Sidebar({ role, onClose }: SidebarProps) {
     <aside className="flex h-full flex-col bg-white">
       <div className="flex items-center justify-between border-b border-outline-variant px-6 py-5">
         <div>
-          <h1 className="text-lg font-bold text-primary">UI GREENMETRIC</h1>
+          <h1 className="text-lg font-bold text-primary">EcoMonitor</h1>
           <p className="text-xs text-muted-foreground">Navigasi Akun & Halaman</p>
         </div>
         {onClose && (

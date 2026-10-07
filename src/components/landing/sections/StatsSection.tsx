@@ -34,10 +34,10 @@ export function StatsSection() {
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
       variants={staggerContainer}
-      className="bg-[#f0fdf4] border-y border-outline-variant/30 py-stack-lg"
+      className="bg-[#f0fdf4] border-y border-outline-variant/30 py-12 md:py-16 lg:py-20"
     >
-      <motion.div variants={fadeInUp} className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-stack-lg lg:gap-8 divide-y md:divide-y-0 lg:divide-x divide-outline-variant/20">
+      <motion.div variants={fadeInUp} className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 divide-y md:divide-y-0 lg:divide-x divide-outline-variant/20">
           {stats.map((stat, index) => (
             <StatCard key={index} {...stat} />
           ))}

@@ -8,7 +8,7 @@ export function LandingFooter() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-lg px-margin-mobile md:px-gutter py-section-gap-mobile md:py-stack-lg max-w-container-max mx-auto w-full">
         <div className="flex flex-col space-y-4">
           <span className="font-headline-sm text-headline-sm font-bold text-primary">
-            UI GreenMetric
+            EcoMonitor
           </span>
           <p className="font-body-md text-body-md text-popover/80 max-w-xs">
             Empowering universities to lead the transition to a sustainable future through data and community.

@@ -47,7 +47,7 @@ export default function ClientPage() {
           >
             <Link
               href="#universities"
-              className="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors"
+              className="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md text-base md:text-lg font-semibold hover:bg-on-primary-fixed-variant transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1"
             >
               Explore Our Community
             </Link>
@@ -60,23 +60,23 @@ export default function ClientPage() {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
           variants={staggerContainer}
-          className="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-gap-mobile md:py-section-gap"
+          className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 py-16 md:py-24 lg:py-32"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <motion.div variants={fadeInUp} className="lg:col-span-5 flex flex-col space-y-4">
-              <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-center">
+            <motion.div variants={fadeInUp} className="lg:col-span-5 flex flex-col space-y-6 md:space-y-8">
+              <span className="font-label-md text-sm md:text-base text-primary tracking-[0.15em] uppercase font-semibold">
                 OUR CLIENTS
               </span>
-              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-tight">
+              <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-surface leading-tight tracking-tight">
                 Built for University Communities.
               </h2>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="lg:col-span-7 flex flex-col space-y-6 lg:pl-8 border-l-0 lg:border-l border-outline-variant/30">
-              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            <motion.div variants={fadeInUp} className="lg:col-span-7 flex flex-col space-y-6 md:space-y-8 lg:pl-12 border-l-0 lg:border-l-2 border-outline-variant/30">
+              <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant">
                 Our platform is designed to support universities in organizing, monitoring, and communicating their sustainability efforts through a connected digital experience.
               </p>
-              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+              <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant">
                 From collecting information to monitoring progress, everything is brought together in one place to make sustainability management simpler and more transparent.
               </p>
             </motion.div>
@@ -84,25 +84,25 @@ export default function ClientPage() {
         </motion.section>
 
         {/* Section 2: University Showcase */}
-        <section id="universities" className="bg-surface-bright py-section-gap-mobile md:py-section-gap border-y border-outline-variant/20">
+        <section id="universities" className="bg-surface-bright py-16 md:py-24 lg:py-32 border-y border-outline-variant/20">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-50px' }}
             variants={staggerContainer}
-            className="max-w-container-max mx-auto px-margin-mobile md:px-gutter"
+            className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12"
           >
-            <motion.div variants={fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
-              <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold block mb-3">
+            <motion.div variants={fadeInUp} className="text-center max-w-3xl mx-auto mb-12 md:mb-16 lg:mb-20">
+              <span className="font-label-md text-sm md:text-base text-primary tracking-[0.15em] uppercase font-semibold block mb-4 md:mb-6">
                 OUR UNIVERSITIES
               </span>
-              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">
+              <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-surface mb-6 md:mb-8 leading-tight tracking-tight">
                 A Community With a Shared Purpose.
               </h2>
-              <p className="font-body-lg text-body-lg text-on-surface-variant mb-2">
+              <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant mb-3">
                 Universities around the world are taking steps toward a more sustainable future.
               </p>
-              <p className="font-body-md text-body-md text-on-surface-variant/80">
+              <p className="font-body-md text-sm md:text-base text-on-surface-variant/80">
                 Explore the institutions that are part of this journey.
               </p>
             </motion.div>
@@ -135,32 +135,32 @@ export default function ClientPage() {
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
           variants={staggerContainer}
-          className="bg-primary/5 border-b border-outline-variant/20 py-section-gap-mobile md:py-section-gap"
+          className="bg-primary/5 border-b border-outline-variant/20 py-16 md:py-24 lg:py-32"
         >
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <motion.div variants={fadeInUp} className="lg:col-span-6 flex flex-col space-y-4">
-                <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-semibold">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-center">
+              <motion.div variants={fadeInUp} className="lg:col-span-6 flex flex-col space-y-6 md:space-y-8">
+                <span className="font-label-md text-sm md:text-base text-primary tracking-[0.15em] uppercase font-semibold">
                   GLOBAL COMMUNITY
                 </span>
-                <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface leading-tight">
+                <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-surface leading-tight tracking-tight">
                   Connected by a Shared Purpose.
                 </h2>
-                <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant">
                   Sustainability becomes more meaningful when universities learn from one another, share experiences, and move forward together.
                 </p>
               </motion.div>
 
-              <motion.div variants={staggerContainer} className="lg:col-span-6 grid grid-cols-2 gap-6 text-center">
-                <motion.div variants={fadeInUp} className="bg-surface-bright border border-outline-variant/30 rounded-2xl p-8 shadow-xs">
-                  <span className="font-display-lg text-display-lg text-primary font-bold block">1,745</span>
-                  <span className="font-headline-sm text-headline-sm text-on-surface font-semibold mt-2 block">
+              <motion.div variants={staggerContainer} className="lg:col-span-6 grid grid-cols-2 gap-6 md:gap-8 text-center">
+                <motion.div variants={fadeInUp} className="bg-surface-bright border border-outline-variant/30 rounded-2xl p-6 md:p-8 lg:p-10 shadow-xs">
+                  <span className="font-display-lg text-5xl md:text-6xl lg:text-7xl text-primary font-bold block">1,745</span>
+                  <span className="font-headline-sm text-lg md:text-xl lg:text-2xl text-on-surface font-semibold mt-3 block">
                     Universities
                   </span>
                 </motion.div>
-                <motion.div variants={fadeInUp} className="bg-surface-bright border border-outline-variant/30 rounded-2xl p-8 shadow-xs">
-                  <span className="font-display-lg text-display-lg text-primary font-bold block">105</span>
-                  <span className="font-headline-sm text-headline-sm text-on-surface font-semibold mt-2 block">
+                <motion.div variants={fadeInUp} className="bg-surface-bright border border-outline-variant/30 rounded-2xl p-6 md:p-8 lg:p-10 shadow-xs">
+                  <span className="font-display-lg text-5xl md:text-6xl lg:text-7xl text-primary font-bold block">105</span>
+                  <span className="font-headline-sm text-lg md:text-xl lg:text-2xl text-on-surface font-semibold mt-3 block">
                     Countries
                   </span>
                 </motion.div>
@@ -178,28 +178,28 @@ export default function ClientPage() {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="bg-primary text-on-primary py-section-gap-mobile md:py-section-gap"
+          className="bg-primary text-on-primary py-16 md:py-24 lg:py-32"
         >
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center flex flex-col items-center">
-            <span className="font-label-md text-label-md text-secondary-fixed tracking-widest uppercase font-semibold mb-3">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 text-center flex flex-col items-center">
+            <span className="font-label-md text-sm md:text-base text-secondary-fixed tracking-[0.15em] uppercase font-semibold mb-4 md:mb-6">
               BE PART OF THE MOVEMENT
             </span>
-            <h2 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-primary mb-6">
+            <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-primary mb-6 md:mb-8 leading-tight tracking-tight">
               Build a Better Campus, Together.
             </h2>
-            <p className="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mb-8">
+            <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-primary/90 max-w-3xl mb-8 md:mb-10">
               Discover how our platform can help your university manage, monitor, and improve its sustainability journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="bg-on-primary text-primary px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors shadow-lg hover:-translate-y-0.5"
+                className="bg-on-primary text-primary px-8 py-4 rounded-lg font-label-md text-base md:text-lg font-semibold hover:bg-surface-container-low transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
               >
                 Contact Us
               </Link>
               <Link
                 href="/ui-green-matric"
-                className="bg-transparent border-2 border-on-primary text-on-primary px-8 py-4 rounded-lg font-label-md text-label-md hover:bg-on-primary/10 transition-colors"
+                className="bg-transparent border-2 border-on-primary text-on-primary px-8 py-4 rounded-lg font-label-md text-base md:text-lg font-semibold hover:bg-on-primary/10 transition-all duration-300"
               >
                 Explore the Platform
               </Link>

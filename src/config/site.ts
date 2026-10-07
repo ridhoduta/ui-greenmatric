@@ -1,8 +1,8 @@
 import type { Role } from '@/types';
 
 export const siteConfig = {
-  name: 'UI GreenMetric Self-Assessment',
-  description: 'Sistem penilaian mandiri kinerja keberlanjutan lingkungan kampus berdasarkan indikator UI GreenMetric.',
+  name: 'EcoMonitor Self-Assessment',
+  description: 'Sistem penilaian mandiri kinerja keberlanjutan lingkungan kampus berdasarkan indikator EcoMonitor.',
   url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
 } as const;
 

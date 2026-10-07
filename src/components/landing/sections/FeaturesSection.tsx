@@ -27,18 +27,18 @@ export function FeaturesSection() {
   ];
 
   return (
-    <section className="bg-surface-bright py-section-gap-mobile md:py-section-gap border-y border-outline-variant/10">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-        <div className="text-center mb-stack-lg">
-          <span className="font-label-md text-label-md text-primary tracking-widest uppercase block mb-4">
+    <section className="bg-surface-bright py-16 md:py-24 lg:py-32 border-y border-outline-variant/10">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <span className="font-label-md text-sm md:text-base text-primary tracking-[0.15em] uppercase block mb-4 md:mb-6 font-semibold">
             THE PLATFORM
           </span>
-          <h2 className="font-headline-md md:font-headline-lg text-headline-md md:text-headline-lg text-on-surface">
+          <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-surface leading-tight tracking-tight">
             Everything in One Place.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-stack-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}

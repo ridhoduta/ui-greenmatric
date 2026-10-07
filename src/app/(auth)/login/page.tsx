@@ -74,7 +74,7 @@ export default function LoginPage() {
             Selamat Datang
           </h2>
           <p className="mt-2 text-xl font-semibold text-emerald-200">
-            Portal UI GreenMetric
+            Portal EcoMonitor
           </p>
           <p className="mt-4 text-sm text-emerald-100/70 leading-relaxed max-w-sm">
             Masuk untuk mengakses dasbor evaluasi, pelaporan data indikator keberlanjutan, dan peringkat institusi Anda.
@@ -82,7 +82,7 @@ export default function LoginPage() {
         </div>
 
         <div className="relative z-10 pt-6 border-t border-white/10 text-xs text-emerald-200/60">
-          © 2026 UI GreenMetric World University Rankings
+          © 2026 EcoMonitor World University Rankings
         </div>
       </div>
 
