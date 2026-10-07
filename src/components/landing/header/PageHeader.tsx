@@ -22,7 +22,7 @@ export interface PageHeaderProps {
 }
 
 const DEFAULT_BG_IMAGE =
-  'https://i.postimg.cc/1zyMGmtd/download.jpg';
+  'images/hero-section.webp'; // Default background image path
 
 export function PageHeader({
   category,

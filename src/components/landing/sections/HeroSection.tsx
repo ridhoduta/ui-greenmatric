@@ -13,7 +13,7 @@ export function HeroSection() {
           style={{ filter }}
           alt="University Campus"
           className="w-full h-full object-cover"
-          src="https://i.postimg.cc/1zyMGmtd/download.jpg"
+          src="/images/hero-section.webp"
         />
         <div className="absolute inset-0 bg-linear-to-r from-[#00422b]/95 via-[#005236]/60 to-[#00422b]/40"></div>
       </div>
