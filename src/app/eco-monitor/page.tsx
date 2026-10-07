@@ -84,13 +84,13 @@ export default function UIGreenMetricPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-center">
             <motion.div variants={fadeInUp} className="lg:col-span-7 flex flex-col space-y-6 md:space-y-8">
               <span className="font-label-md text-sm md:text-base text-primary tracking-[0.15em] uppercase font-semibold">
-                ABOUT UI GREENMETRIC
+                ABOUT EcoMonitor
               </span>
               <h2 className="font-headline-lg text-4xl md:text-5xl lg:text-6xl font-bold text-on-surface leading-tight tracking-tight">
-                What is UI GreenMetric?
+                What is EcoMonitor?
               </h2>
               <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant pt-2">
-                UI GreenMetric Sustainable University Rankings is a university sustainability ranking initiated by Universitas Indonesia in 2010.
+                EcoMonitor Sustainable University Rankings is a university sustainability ranking initiated by Universitas Indonesia in 2010.
               </p>
               <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant">
                 The ranking measures sustainability efforts and performance across universities around the world, while encouraging institutions to develop meaningful sustainability programs and actions.
@@ -130,7 +130,7 @@ export default function UIGreenMetricPage() {
                 Turning Sustainability Into Action.
               </h2>
               <p className="font-body-lg text-base md:text-lg lg:text-xl leading-relaxed text-on-surface-variant">
-                UI GreenMetric encourages universities to move beyond awareness and turn sustainability into measurable and meaningful action.
+                EcoMonitor encourages universities to move beyond awareness and turn sustainability into measurable and meaningful action.
               </p>
             </motion.div>
 
