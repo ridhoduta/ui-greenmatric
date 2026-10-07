@@ -102,7 +102,7 @@ export function LandingHeader() {
       <header className="bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20 sticky top-0 z-50">
         <nav className="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-20">
           <Link href="/" className="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">
-            UI GREENMETRIC
+            EcoMonitor
           </Link>
 
           {/* Desktop Navigation */}

@@ -22,7 +22,7 @@ export interface PageHeaderProps {
 }
 
 const DEFAULT_BG_IMAGE =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuDLZcUwlYifbNwWK7v-_SGlb3HU-jPcfjQLs-VDA8YPh-apGNqVypJzwPYROGbK7uIBqxRS2lIf5pTbh2ssSxN36IlNP6jWJayDu2y-orDvsSIoJQ4uIRoXlsDbnG-Coo2jc952e3h8dVWh_3PglCMzuHFemsNkQwJvjoTqBHi9xhHBuY9sRJHGyMtE-U_xJ_CGO8m8mVRPnlJYkZXHjTs9wHL0OcWx8vs12SKTAFNkrh9jz7LNddQ';
+  'https://i.postimg.cc/zDFSqZGy/IMG-20210623-WA0006.jpg';
 
 export function PageHeader({
   category,
@@ -37,7 +37,7 @@ export function PageHeader({
   const isCenter = align === 'center';
 
   return (
-    <section className={`relative w-full min-h-[360px] md:min-h-[440px] flex items-center py-16 md:py-20 overflow-hidden bg-primary ${className}`}>
+    <section className={`relative w-full min-h-90 md:min-h-110 flex items-center py-16 md:py-20 overflow-hidden bg-primary ${className}`}>
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img
@@ -46,7 +46,7 @@ export function PageHeader({
           className="w-full h-full object-cover"
         />
         {/* Deep Green Tint Overlay matching UI GreenMetric theme */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#00422b]/95 via-[#005236]/85 to-[#00422b]/75" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#00422b]/95 via-[#005236]/85 to-[#00422b]/75" />
       </div>
 
       {/* Content Layer */}

@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UI GreenMetric - Sustainable University Rankings",
+  title: "EcoMonitor– Global Campus Sustainability Dashboard",
   description: "A digital platform for universities to manage, monitor, and improve their sustainability performance.",
 };
 

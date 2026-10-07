@@ -13,7 +13,7 @@ export function HeroSection() {
           style={{ filter }}
           alt="University Campus"
           className="w-full h-full object-cover"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbgWq5yc-oAQ6Wb9bBz3AULnk_lGn10nuAWRaOpLotyCygAL3u2CXyWEti1TzE0B6QOv6qVq6YPHK-PTQLcHjvU4lGSBJfONjvdZgT3mBCXKcs-uMJpYBGcmj7dZ77GdgwYAWHD7nkMcLx57wUq6fz39CdvUzd9YW-dX7IgqNv0kAvjpZYWuNdeNPLaMaxND1h0GT0lQQWxZsVnmvPwfU9n0zgniYjJvOrP7IYpilwx2_OhaDeVps"
+          src="https://i.postimg.cc/zDFSqZGy/IMG-20210623-WA0006.jpg"
         />
         <div className="absolute inset-0 bg-linear-to-r from-[#00422b]/95 via-[#005236]/60 to-[#00422b]/40"></div>
       </div>
@@ -21,7 +21,10 @@ export function HeroSection() {
       {/* Hero Content Overlaid on top of Sticky Image */}
       <div className="relative z-10 -mt-[100vh] min-h-screen flex flex-col justify-center items-center text-center space-y-stack-md mx-auto px-margin-mobile md:px-gutter max-w-container-max py-section-gap-mobile md:py-section-gap">
         <h1 className="font-headline-lg text-headline-lg-mobile md:text-display-lg leading-tight text-on-primary max-w-4xl drop-shadow-md">
-          Rethinking the Future of Campus.
+          EcoMonitor 
+          <p>
+          Global Campus Sustainability Dashboard
+          </p>
         </h1>
         <p className="font-body-lg text-body-lg max-w-2xl text-on-primary/90 mx-auto drop-shadow">
           A digital platform for universities to manage, monitor, and improve
