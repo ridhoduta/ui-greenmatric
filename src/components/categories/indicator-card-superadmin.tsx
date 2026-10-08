@@ -252,7 +252,7 @@ export function IndicatorCardSuperAdmin({
 
   if (isEditing) {
     return (
-      <div className="bg-white border-2 border-primary rounded-xl p-4 shadow-lg">
+      <div className="bg-white border-2 border-primary rounded-xl p-3.5 sm:p-4 shadow-lg">
         {/* Edit Mode Header */}
         <div className="flex items-center justify-between mb-3 pb-2 border-b border-outline-variant">
           <h3 className="text-xs font-bold text-primary uppercase tracking-wide">
@@ -281,7 +281,7 @@ export function IndicatorCardSuperAdmin({
               onChange={(e) => setCode(e.target.value)}
               disabled={isSaving}
               placeholder="Contoh: SI9"
-              className="w-full h-8 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
+              className="w-full h-9 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
             />
           </div>
 
@@ -301,7 +301,7 @@ export function IndicatorCardSuperAdmin({
           </div>
 
           {/* Input Type & Max Points */}
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
               <label className="block text-[11px] font-semibold text-on-surface mb-0.5">
                 Tipe Input <span className="text-red-500">*</span>
@@ -310,7 +310,7 @@ export function IndicatorCardSuperAdmin({
                 value={inputType}
                 onChange={(e) => setInputType(e.target.value as InputType)}
                 disabled={isSaving}
-                className="w-full h-8 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
+                className="w-full h-9 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
               >
                 <option value="NUMERIC_FORMULA">Numeric Formula</option>
                 <option value="SINGLE_CHOICE">Single Choice</option>
@@ -326,7 +326,7 @@ export function IndicatorCardSuperAdmin({
                 value={maxPoints}
                 onChange={(e) => setMaxPoints(parseInt(e.target.value) || 0)}
                 disabled={isSaving}
-                className="w-full h-8 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
+                className="w-full h-9 rounded-lg border border-input bg-transparent px-2.5 text-xs transition-colors outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 disabled:opacity-50"
               />
             </div>
           </div>
@@ -367,14 +367,14 @@ export function IndicatorCardSuperAdmin({
                     </button>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-1.5 mb-1.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mb-1.5">
                     <input
                       type="text"
                       placeholder="key"
                       value={field.key}
                       onChange={(e) => updateField(index, { key: e.target.value })}
                       disabled={isSaving}
-                      className="h-7 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
+                      className="h-8 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                     />
                     <input
                       type="text"
@@ -382,18 +382,18 @@ export function IndicatorCardSuperAdmin({
                       value={field.label}
                       onChange={(e) => updateField(index, { label: e.target.value })}
                       disabled={isSaving}
-                      className="h-7 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
+                      className="h-8 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                     />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-1.5">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
                     <select
                       value={field.type}
                       onChange={(e) =>
                         updateField(index, { type: e.target.value as FieldType })
                       }
                       disabled={isSaving}
-                      className="h-7 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
+                      className="h-8 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                     >
                       <option value="int">Integer</option>
                       <option value="float">Float</option>
@@ -407,9 +407,9 @@ export function IndicatorCardSuperAdmin({
                       value={field.unit ?? ''}
                       onChange={(e) => updateField(index, { unit: e.target.value })}
                       disabled={isSaving}
-                      className="h-7 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
+                      className="h-8 rounded border border-slate-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                     />
-                    <label className="flex items-center gap-1 px-1">
+                    <label className="flex items-center gap-1 px-1 col-span-2 sm:col-span-1">
                       <input
                         type="checkbox"
                         checked={field.required}
@@ -417,9 +417,9 @@ export function IndicatorCardSuperAdmin({
                           updateField(index, { required: e.target.checked })
                         }
                         disabled={isSaving}
-                        className="w-3 h-3"
+                        className="w-3.5 h-3.5"
                       />
-                      <span className="text-[10px] text-slate-700">Req</span>
+                      <span className="text-[10px] text-slate-700">Wajib diisi</span>
                     </label>
                   </div>
                 </div>
@@ -464,14 +464,14 @@ export function IndicatorCardSuperAdmin({
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-1.5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                       <input
                         type="text"
                         placeholder="Label pilihan"
                         value={tier.option_label}
                         onChange={(e) => updateTier(index, { option_label: e.target.value })}
                         disabled={isSaving}
-                        className="w-full h-7 rounded border border-blue-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
+                        className="w-full h-8 rounded border border-blue-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                       />
                       <input
                         type="number"
@@ -482,7 +482,7 @@ export function IndicatorCardSuperAdmin({
                         value={tier.point_multiplier}
                         onChange={(e) => updateTier(index, { point_multiplier: parseFloat(e.target.value) || 0 })}
                         disabled={isSaving}
-                        className="w-full h-7 rounded border border-blue-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
+                        className="w-full h-8 rounded border border-blue-300 bg-white px-2 text-[11px] outline-none focus:border-primary disabled:opacity-50"
                       />
                     </div>
                   </div>
@@ -498,7 +498,7 @@ export function IndicatorCardSuperAdmin({
             type="button"
             onClick={handleCancel}
             disabled={isSaving}
-            className="px-3 py-1.5 text-[11px] font-semibold text-on-surface bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors disabled:opacity-50"
+            className="px-4 py-2 text-[11px] font-semibold text-on-surface bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors disabled:opacity-50"
           >
             Batal
           </button>
@@ -506,7 +506,7 @@ export function IndicatorCardSuperAdmin({
             type="button"
             onClick={handleSave}
             disabled={isSaving}
-            className="inline-flex items-center gap-1 px-3 py-1.5 text-[11px] font-semibold text-white bg-primary rounded-lg hover:brightness-110 transition-all disabled:opacity-50"
+            className="inline-flex items-center gap-1 px-4 py-2 text-[11px] font-semibold text-white bg-primary rounded-lg hover:brightness-110 transition-all disabled:opacity-50"
           >
             {isSaving ? (
               <>
@@ -527,7 +527,7 @@ export function IndicatorCardSuperAdmin({
 
   // Display Mode
   return (
-    <div className="bg-white border border-outline-variant rounded-xl p-4 shadow-sm transition-shadow hover:shadow-md group">
+    <div className="bg-white border border-outline-variant rounded-xl p-3.5 sm:p-4 shadow-sm transition-shadow hover:shadow-md group">
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-3">
         <div className="flex-1 min-w-0">
@@ -539,7 +539,7 @@ export function IndicatorCardSuperAdmin({
               {indicator.input_type === 'NUMERIC_FORMULA' ? 'Formula' : 'Choice'}
             </span>
           </div>
-          <h4 className="text-sm font-semibold text-on-surface leading-snug truncate">
+          <h4 className="text-sm font-semibold text-on-surface leading-snug">
             {indicator.title}
           </h4>
         </div>
@@ -558,13 +558,13 @@ export function IndicatorCardSuperAdmin({
           {(indicator.fields ?? []).map((field) => (
             <div
               key={field.id}
-              className="flex items-center justify-between text-[11px] bg-slate-50 border border-slate-100 rounded px-2 py-1"
+              className="flex items-center justify-between gap-2 text-[11px] bg-slate-50 border border-slate-100 rounded px-2 py-1"
             >
               <div className="flex items-center gap-1.5 min-w-0">
-                <span className="font-mono text-slate-600 font-medium truncate">
+                <span className="font-mono text-slate-600 font-medium shrink-0">
                   {field.key}
                 </span>
-                <span className="text-slate-400">→</span>
+                <span className="text-slate-400 shrink-0">→</span>
                 <span className="text-on-surface truncate">{field.label}</span>
               </div>
               <div className="flex items-center gap-1 shrink-0">
@@ -583,11 +583,11 @@ export function IndicatorCardSuperAdmin({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex items-center gap-2 pt-2.5 border-t border-outline-variant opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="flex items-center gap-2 pt-2.5 border-t border-outline-variant sm:opacity-0 sm:group-hover:opacity-100 sm:transition-opacity">
         <button
           type="button"
           onClick={() => setIsEditing(true)}
-          className="flex-1 inline-flex items-center justify-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
+          className="flex-1 inline-flex items-center justify-center gap-1 px-2.5 py-2 text-[11px] font-semibold text-primary bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors"
         >
           Edit
         </button>
@@ -595,7 +595,7 @@ export function IndicatorCardSuperAdmin({
           type="button"
           onClick={handleDelete}
           disabled={isDeleting}
-          className="inline-flex items-center justify-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors disabled:opacity-50"
+          className="inline-flex items-center justify-center gap-1 px-3 py-2 text-[11px] font-semibold text-red-600 bg-red-50 rounded-lg hover:bg-red-100 transition-colors disabled:opacity-50"
         >
           {isDeleting ? (
             <>

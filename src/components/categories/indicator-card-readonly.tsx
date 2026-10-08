@@ -31,7 +31,7 @@ export function IndicatorCardReadonly({ indicator }: IndicatorCardReadonlyProps)
     : 'Kosong';
 
   return (
-    <div className="bg-white border border-outline-variant rounded-xl p-4 shadow-sm">
+    <div className="bg-white border border-outline-variant rounded-xl p-3.5 sm:p-4 shadow-sm">
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-2">
         <div className="flex-1 min-w-0">
@@ -43,7 +43,7 @@ export function IndicatorCardReadonly({ indicator }: IndicatorCardReadonlyProps)
               {statusLabel}
             </span>
           </div>
-          <h4 className="text-sm font-semibold text-on-surface leading-snug truncate">
+          <h4 className="text-sm font-semibold text-on-surface leading-snug">
             {indicator.title}
           </h4>
         </div>

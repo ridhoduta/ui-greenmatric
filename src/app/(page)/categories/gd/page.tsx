@@ -57,9 +57,9 @@ export default function CategoryGDPage() {
 
   return (
     <CategoryPageShell config={config} role={user.role} earnedPoints={earnedPoints}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {indicators.length === 0 ? (
-          <div className="col-span-2 text-center py-12 text-xs text-on-surface-variant">
+          <div className="sm:col-span-2 text-center py-12 text-xs text-on-surface-variant">
             Tidak ada indikator ditemukan.
           </div>
         ) : (

@@ -67,21 +67,21 @@ export default function CategoriesPage() {
   const breakdown = dashboardData?.category_breakdown ?? [];
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto w-full">
+    <div className="px-4 py-5 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
       {/* Header */}
-      <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant pb-5">
-        <div>
-          <div className="flex items-center gap-2 text-primary font-bold text-sm mb-1">
+      <div className="mb-5 sm:mb-6 flex flex-col gap-3 sm:flex-row sm:items-center justify-between sm:gap-4 border-b border-outline-variant pb-4 sm:pb-5">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 text-primary font-bold text-xs sm:text-sm mb-1">
             <LayoutGrid size={16} />
             <span>Katalog Evaluasi</span>
           </div>
-          <h2 className="text-2xl font-extrabold text-on-surface tracking-tight">Kategori Evaluasi Mandiri</h2>
-          <p className="text-on-surface-variant text-sm mt-1">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-on-surface tracking-tight">Kategori Evaluasi Mandiri</h2>
+          <p className="text-on-surface-variant text-xs sm:text-sm mt-1">
             Pantau dan lengkapi pengisian indikator keberlanjutan kampus Anda.
           </p>
         </div>
 
-        <div>
+        <div className="shrink-0">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-semibold text-emerald-800">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
             Tahun Evaluasi: {dashboardData?.current_year ?? new Date().getFullYear()}
@@ -90,7 +90,7 @@ export default function CategoriesPage() {
       </div>
 
       {/* 2-Column Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {CATEGORIES.map((category) => {
           const ui = CATEGORY_UI_CONFIG[category.code];
           const scoreData = breakdown.find((b) => b.category_code === category.code);
@@ -106,16 +106,16 @@ export default function CategoriesPage() {
             <div
               key={category.code}
               onClick={() => router.push(category.href)}
-              className="bg-white border border-outline-variant rounded-xl p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all flex flex-col cursor-pointer group relative overflow-hidden"
+              className="bg-white border border-outline-variant rounded-xl p-3.5 sm:p-4 shadow-sm hover:shadow-md hover:border-primary/30 transition-all flex flex-col cursor-pointer group relative overflow-hidden"
             >
               {/* Top Row: Icon + Title + Badge */}
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="flex items-center gap-3 min-w-0">
+              <div className="flex items-start justify-between gap-2.5 sm:gap-3 mb-3">
+                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                   <div className={`shrink-0 p-2 rounded-lg ${ui.bgColor} transition-colors group-hover:scale-105 duration-300`}>
                     {ui.icon}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-sm font-bold text-on-surface leading-snug group-hover:text-primary transition-colors truncate">
+                    <h3 className="text-sm font-bold text-on-surface leading-snug group-hover:text-primary transition-colors line-clamp-2 sm:truncate">
                       {category.name}
                     </h3>
                     <span className="text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest">

@@ -45,23 +45,23 @@ export function CategoryPageShell({
 
   if (isSuperAdmin) {
     return (
-      <div className="w-full max-w-6xl mx-auto p-6 lg:p-8">
+      <div className="w-full max-w-6xl mx-auto px-4 py-5 sm:p-6 lg:p-8">
         {children}
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 lg:p-8">
+    <div className="w-full max-w-6xl mx-auto px-4 py-5 sm:p-6 lg:p-8">
       {/* Compact Header */}
-      <div className="mb-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div className="flex items-center gap-3">
+      <div className="mb-5 sm:mb-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
             <div className={`shrink-0 flex items-center justify-center w-10 h-10 rounded-lg font-extrabold text-xs ${colors.bg} ${colors.text}`}>
               {config.code}
             </div>
-            <div>
-              <h2 className="text-xl font-bold text-on-surface leading-tight">
+            <div className="min-w-0">
+              <h2 className="text-lg sm:text-xl font-bold text-on-surface leading-tight">
                 {config.name}
               </h2>
               <p className="text-xs text-on-surface-variant mt-0.5">
@@ -70,7 +70,7 @@ export function CategoryPageShell({
             </div>
           </div>
 
-          <span className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${
+          <span className={`shrink-0 self-start sm:self-auto inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-semibold ${
             isOperator
               ? 'bg-primary/10 text-primary'
               : 'bg-slate-100 text-slate-600'
